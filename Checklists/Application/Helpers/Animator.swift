@@ -7,7 +7,6 @@
 
 import UIKit
 
-
  /// Global animator class.
 final class Animator {
         // Fade animation helper method when replaced root view controller in main Window object
