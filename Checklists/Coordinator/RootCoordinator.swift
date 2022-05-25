@@ -1,0 +1,47 @@
+// 
+//  RootCoordinator.swift
+//  Checklists
+//
+//  Created by Otim John Paul on 25.05.22.
+//
+
+import UIKit
+import Combine
+
+// MARK: - Router Interface
+
+protocol RootRoute: AnyObject {
+
+}
+
+final class RootCoordinator: Coordinator {
+    
+    weak var parentCoordinator: Coordinator?
+    
+    var childCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init(navigationController: UINavigationController, parentCoordinator: Coordinator? = nil) {
+        self.navigationController = navigationController
+        self.parentCoordinator = parentCoordinator
+    }
+    
+    func start() {
+        
+    }
+    
+}
+
+// MARK: - Router implementation
+
+extension RootCoordinator: RootRoute {
+    
+}
+
+// MARK: - Private
+
+extension RootCoordinator {
+
+}
