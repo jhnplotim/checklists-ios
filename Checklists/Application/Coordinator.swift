@@ -26,8 +26,6 @@ protocol Coordinator: AnyObject {
     
 }
 
-
-
 extension Coordinator {
     
     var coordinatorStartController: UIViewController {

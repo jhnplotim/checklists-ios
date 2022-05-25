@@ -24,6 +24,11 @@
 		DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992621283E1F53004C0FF6 /* Coordinator.swift */; };
 		DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992625283E2165004C0FF6 /* RootCoordinator.swift */; };
 		DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992629283E223D004C0FF6 /* AppCoordinator.swift */; };
+		DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262C283E26CF004C0FF6 /* .swiftlint.yml */; };
+		DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262E283E274C004C0FF6 /* swiftgen.yml */; };
+		DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA992633283E28FB004C0FF6 /* Localizable.strings */; };
+		DA992638283E2B03004C0FF6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992636283E2B03004C0FF6 /* Assets.swift */; };
+		DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992637283E2B03004C0FF6 /* Localizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,11 @@
 		DA992621283E1F53004C0FF6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DA992625283E2165004C0FF6 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		DA992629283E223D004C0FF6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DA99262C283E26CF004C0FF6 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		DA99262E283E274C004C0FF6 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		DA992634283E28FB004C0FF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		DA992636283E2B03004C0FF6 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		DA992637283E2B03004C0FF6 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +132,6 @@
 				DA992604283E10C6004C0FF6 /* Application */,
 				DA992615283E171A004C0FF6 /* Scene */,
 				DA992616283E174E004C0FF6 /* Resource */,
-				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
 				DA9925DA283E0DD5004C0FF6 /* Main.storyboard */,
 			);
 			path = Checklists;
@@ -189,7 +198,12 @@
 		DA992616283E174E004C0FF6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DA992632283E28FB004C0FF6 /* en.lproj */,
+				DA992630283E27AF004C0FF6 /* Generated */,
+				DA99262E283E274C004C0FF6 /* swiftgen.yml */,
+				DA99262C283E26CF004C0FF6 /* .swiftlint.yml */,
 				DA992617283E1767004C0FF6 /* LaunchScreen */,
+				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -237,6 +251,23 @@
 			path = UnAuthenticated;
 			sourceTree = "<group>";
 		};
+		DA992630283E27AF004C0FF6 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				DA992636283E2B03004C0FF6 /* Assets.swift */,
+				DA992637283E2B03004C0FF6 /* Localizable.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		DA992632283E28FB004C0FF6 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				DA992633283E28FB004C0FF6 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +275,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA9925FB283E0DD7004C0FF6 /* Build configuration list for PBXNativeTarget "Checklists" */;
 			buildPhases = (
+				DA992631283E286B004C0FF6 /* Swift Gen */,
 				DA9925CD283E0DD5004C0FF6 /* Sources */,
 				DA9925CE283E0DD5004C0FF6 /* Frameworks */,
 				DA9925CF283E0DD5004C0FF6 /* Resources */,
@@ -342,6 +374,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */,
+				DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */,
+				DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */,
 				DA9925E1283E0DD7004C0FF6 /* LaunchScreen.storyboard in Resources */,
 				DA9925DE283E0DD7004C0FF6 /* Assets.xcassets in Resources */,
 				DA9925DC283E0DD5004C0FF6 /* Main.storyboard in Resources */,
@@ -383,6 +418,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PROJECT_DIR}/scripts/swiftlint/swiftlint\"\n";
 		};
+		DA992631283E286B004C0FF6 /* Swift Gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/scripts/swiftgen/bin/swiftgen\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -392,6 +445,7 @@
 			files = (
 				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
 				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
+				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,
 				DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */,
 				DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */,
 				DA992612283E161F004C0FF6 /* CombineTimer.swift in Sources */,
@@ -400,6 +454,7 @@
 				DA9925D5283E0DD5004C0FF6 /* AppDelegate.swift in Sources */,
 				DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */,
 				DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */,
+				DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */,
 				DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +506,14 @@
 				DA9925E0283E0DD7004C0FF6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DA992633283E28FB004C0FF6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA992634283E28FB004C0FF6 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
