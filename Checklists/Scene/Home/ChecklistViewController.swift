@@ -1,5 +1,5 @@
 // 
-//  HomeViewController.swift
+//  ChecklistViewController.swift
 //  Checklists
 //
 //  Created by Otim John Paul on 25.05.22.
@@ -8,17 +8,17 @@
 import UIKit
 import Combine
  
-protocol HomeViewDelegate: AnyObject {
+protocol ChecklistViewDelegate: AnyObject {
     
 }
 
 // MARK: - Class
 
-final class HomeViewController: BaseUIViewController {
+final class ChecklistViewController: BaseUITableViewController {
 
-    typealias ViewModel = HomeVM & HomeTransition
+    typealias ViewModel = ChecklistVM & ChecklistTransition
     
-    static func create(viewModel: HomeViewModel) -> Self {
+    static func create(viewModel: ChecklistViewModel) -> Self {
         let instance = makeInstance()
         instance.viewModel = viewModel
 
@@ -42,7 +42,7 @@ final class HomeViewController: BaseUIViewController {
 
 // MARK: - Lifecycle
 
-extension HomeViewController {
+extension ChecklistViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ extension HomeViewController {
 
 // MARK: - Private
 
-extension HomeViewController {
+extension ChecklistViewController {
 
     private func setupView() {
         navigationItem.title = C.navigationTitle
@@ -63,8 +63,8 @@ extension HomeViewController {
 
 }
 
-// MARK: - HomeViewDelegate
+// MARK: - ChecklistViewDelegate
 
-extension HomeViewController: HomeViewDelegate {
+extension ChecklistViewController: ChecklistViewDelegate {
     
 }

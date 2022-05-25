@@ -29,7 +29,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        setRoot(HomeViewController.create(viewModel: HomeViewModel(route: self)))
+        setRoot(ChecklistViewController.create(viewModel: ChecklistViewModel(route: self)))
     }
     
 }
