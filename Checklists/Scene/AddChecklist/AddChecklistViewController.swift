@@ -116,4 +116,10 @@ extension AddChecklistViewController {
         doneBarBtn.isEnabled = !newText.isEmpty
         return true
     }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        // Clear Button clicked, disable doneBarBtn
+        doneBarBtn.isEnabled = false
+        return true
+    }
 }
