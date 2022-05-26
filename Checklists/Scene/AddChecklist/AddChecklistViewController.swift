@@ -14,7 +14,7 @@ protocol AddChecklistViewDelegate: AnyObject {
 
 // MARK: - Class
 
-final class AddChecklistViewController: BaseUITableViewController {
+final class AddChecklistViewController: BaseUITableViewController, UITextFieldDelegate {
 
     typealias ViewModel = AddChecklistVM & AddChecklistTransition
     
@@ -27,6 +27,7 @@ final class AddChecklistViewController: BaseUITableViewController {
 
     // MARK: - Outlet
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var doneBarBtn: UIBarButtonItem!
     
     // MARK: - Constant
 
@@ -85,6 +86,7 @@ extension AddChecklistViewController {
         navigationItem.title = C.navigationTitle
         navigationItem.largeTitleDisplayMode = .never
         textField.placeholder = L.Feature.Checklists.Add.placeholder
+        textField.delegate = self
     }
 
 }
@@ -100,5 +102,22 @@ extension AddChecklistViewController {
     // Disable row selection
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension AddChecklistViewController {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let oldText = textField.text ?? ""
+        guard let stringRange = Range(range, in: oldText) else { return true }
+        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        if newText.isEmpty {
+            
+            doneBarBtn.isEnabled = false
+            } else {
+            doneBarBtn.isEnabled = true
+        }
+          return true
     }
 }
