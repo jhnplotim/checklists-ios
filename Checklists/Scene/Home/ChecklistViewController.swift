@@ -9,7 +9,7 @@ import UIKit
 import Combine
  
 protocol ChecklistViewDelegate: AnyObject {
-    
+    func addItem(newItem: ChecklistRowView.Model)
 }
 
 // MARK: - Class
@@ -36,7 +36,7 @@ final class ChecklistViewController: BaseUITableViewController {
     // MARK: - Constant
 
     private enum C {
-        static let navigationTitle = L.App.name
+        static let navigationTitle = L.Feature.Checklists.title
     }
 
     // MARK: - Variable
@@ -47,19 +47,7 @@ final class ChecklistViewController: BaseUITableViewController {
     
     // MARK: - Actions
     @IBAction func addItem() {
-        // Position to insert item
-        let newRowIndex = items.count
-
-        // Build item to insert
-        let item = Item.checklistRow(model: ChecklistRowView.Model(title: "I am a new row", isChecked: false))
-          
-        // Append item to list
-        items.append(item)
-
-        // Updated the table view
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
+        viewModel.addItem()
     }
 
 }
@@ -115,7 +103,18 @@ extension ChecklistViewController {
 // MARK: - ChecklistViewDelegate
 
 extension ChecklistViewController: ChecklistViewDelegate {
-    
+    func addItem(newItem: ChecklistRowView.Model) {
+        // Position to insert item
+        let newRowIndex = items.count
+
+        // Append item to list
+        items.append(Item.checklistRow(model: newItem))
+
+        // Updated the table view
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+    }
 }
 
 // MARK: - UITableViewDelegate

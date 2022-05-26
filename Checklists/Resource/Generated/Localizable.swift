@@ -44,6 +44,17 @@ internal enum L {
     /// Yes
     internal static let yes = L.tr("Localizable", "button.yes")
   }
+
+  internal enum Feature {
+    internal enum Checklists {
+      /// Checklists
+      internal static let title = L.tr("Localizable", "feature.checklists.title")
+      internal enum Add {
+        /// Add Item
+        internal static let title = L.tr("Localizable", "feature.checklists.add.title")
+      }
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

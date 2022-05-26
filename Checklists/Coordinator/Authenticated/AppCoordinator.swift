@@ -11,7 +11,7 @@ import Combine
 // MARK: - Router Interface
 
 protocol AppRoute: AnyObject {
-
+    func addCheckListItem(completion: ((ChecklistRowView.Model) -> Void)?)
 }
 
 final class AppCoordinator: Coordinator {
@@ -37,7 +37,9 @@ final class AppCoordinator: Coordinator {
 // MARK: - Router implementation
 
 extension AppCoordinator: AppRoute {
-    
+    func addCheckListItem(completion: ((ChecklistRowView.Model) -> Void)?) {
+        push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion)))
+    }
 }
 
 // MARK: - Private

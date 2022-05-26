@@ -30,3 +30,11 @@
 "button.Confirm" = "Confirm";
 
 "button.recover" = "Recover";
+
+
+/********** Checklist **********/
+
+"feature.checklists.title" = "Checklists";
+
+"feature.checklists.add.title" = "Add Item";
+

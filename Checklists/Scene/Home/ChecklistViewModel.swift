@@ -12,6 +12,7 @@ protocol ChecklistVM: AnyObject {
 }
 
 protocol ChecklistTransition: AnyObject {
+    func addItem()
 
 }
 
@@ -46,11 +47,15 @@ extension ChecklistViewModel: ChecklistVM {
 // MARK: - ChecklistTransition
 
 extension ChecklistViewModel: ChecklistTransition {
-    
+    func addItem() {
+        route?.addCheckListItem(completion: addItem)
+    }
 }
 
 // MARK: - Private
 
 extension ChecklistViewModel {
-
+    func addItem(addedItem: ChecklistRowView.Model) {
+        self.viewDelegate?.addItem(newItem: addedItem)
+    }
 }

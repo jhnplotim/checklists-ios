@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class BaseUITableViewController: UITableViewController {
     
     let generator = UIImpactFeedbackGenerator(style: .medium)

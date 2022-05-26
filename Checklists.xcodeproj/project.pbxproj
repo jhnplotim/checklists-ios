@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */; };
+		7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */; };
+		7EF05AE2283FDFD900F4873B /* AddChecklistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */; };
 		DA9925D5283E0DD5004C0FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */; };
 		DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */; };
 		DA9925DE283E0DD7004C0FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistViewModel.swift; sourceTree = "<group>"; };
+		7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistViewController.swift; sourceTree = "<group>"; };
+		7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddChecklistViewController.storyboard; sourceTree = "<group>"; };
 		DA9925D1283E0DD5004C0FF6 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +145,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EF05ADC283FDFA900F4873B /* AddChecklist */ = {
+			isa = PBXGroup;
+			children = (
+				7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */,
+				7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */,
+				7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */,
+			);
+			path = AddChecklist;
+			sourceTree = "<group>";
+		};
 		DA9925C8283E0DD5004C0FF6 = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +241,7 @@
 		DA992615283E171A004C0FF6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7EF05ADC283FDFA900F4873B /* AddChecklist */,
 				DA992643283E52CD004C0FF6 /* Home */,
 				DA99263E283E51F0004C0FF6 /* Base */,
 			);
@@ -492,6 +509,7 @@
 				DAC137AD283E9B0A00DDDD47 /* SeparatorRowTableViewCell.xib in Resources */,
 				DA9925E1283E0DD7004C0FF6 /* LaunchScreen.storyboard in Resources */,
 				DA9925DE283E0DD7004C0FF6 /* Assets.xcassets in Resources */,
+				7EF05AE2283FDFD900F4873B /* AddChecklistViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +582,7 @@
 				DA99263B283E4F67004C0FF6 /* Instantiable+.swift in Sources */,
 				DAC137C1283F65EA00DDDD47 /* UITableView+.swift in Sources */,
 				DA992640283E5213004C0FF6 /* BaseUIViewController.swift in Sources */,
+				7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */,
 				DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */,
 				DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */,
 				DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */,
@@ -580,6 +599,7 @@
 				DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */,
 				DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */,
 				DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */,
+				7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */,
 				DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
