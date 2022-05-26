@@ -112,12 +112,8 @@ extension AddChecklistViewController {
         let oldText = textField.text ?? ""
         guard let stringRange = Range(range, in: oldText) else { return true }
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
-        if newText.isEmpty {
-            
-            doneBarBtn.isEnabled = false
-            } else {
-            doneBarBtn.isEnabled = true
-        }
-          return true
+        
+        doneBarBtn.isEnabled = !newText.isEmpty
+        return true
     }
 }
