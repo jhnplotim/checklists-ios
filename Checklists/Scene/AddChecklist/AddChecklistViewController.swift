@@ -26,6 +26,7 @@ final class AddChecklistViewController: BaseUITableViewController {
     }
 
     // MARK: - Outlet
+    @IBOutlet weak var textField: UITextField!
     
     // MARK: - Constant
 
@@ -38,14 +39,22 @@ final class AddChecklistViewController: BaseUITableViewController {
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
     
-    
-    // MARK:- Actions
+    // MARK: - Actions
     @IBAction func cancel() {
-      navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func done() {
-      navigationController?.popViewController(animated: true)
+        // Add the following line
+        let value = textField.text ?? ""
+        
+        if !value.isEmpty {
+            print("Contents of the text field: \(value)")
+            // TODO: Handle empty inputs
+            viewModel.addItem(titleName: value)
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
 
 }
@@ -59,6 +68,11 @@ extension AddChecklistViewController {
 
         setupView()
         viewModel.setup(viewDelegate: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
     }
 
 }
@@ -78,4 +92,12 @@ extension AddChecklistViewController {
 
 extension AddChecklistViewController: AddChecklistViewDelegate {
     
+}
+
+// MARK: - Table View Delegates
+extension AddChecklistViewController {
+    // Disable row selection
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
 }
