@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Label: UILabel {
+public class Label: UILabel {
 
     @IBInspectable var caption: Bool = false {
         didSet {

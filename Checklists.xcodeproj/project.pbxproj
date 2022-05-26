@@ -33,6 +33,19 @@
 		DA992647283E52EF004C0FF6 /* ChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992644283E52EF004C0FF6 /* ChecklistViewModel.swift */; };
 		DA992648283E52EF004C0FF6 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992645283E52EF004C0FF6 /* ChecklistViewController.swift */; };
 		DA992649283E52EF004C0FF6 /* ChecklistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA992646283E52EF004C0FF6 /* ChecklistViewController.storyboard */; };
+		DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */; };
+		DAC137AD283E9B0A00DDDD47 /* SeparatorRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137A9283E9B0900DDDD47 /* SeparatorRowTableViewCell.xib */; };
+		DAC137AE283E9B0A00DDDD47 /* SeparatorRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137AA283E9B0900DDDD47 /* SeparatorRowTableViewCell.swift */; };
+		DAC137AF283E9B0A00DDDD47 /* SeparatorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137AB283E9B0A00DDDD47 /* SeparatorRowView.swift */; };
+		DAC137B0283E9B0A00DDDD47 /* SeparatorRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137AC283E9B0A00DDDD47 /* SeparatorRowView.xib */; };
+		DAC137B5283E9B3F00DDDD47 /* ChecklistRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */; };
+		DAC137B6283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137B2283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift */; };
+		DAC137B7283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137B3283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib */; };
+		DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */; };
+		DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137BA283E9C0700DDDD47 /* ReusableNibView.swift */; };
+		DAC137BD283E9C4800DDDD47 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137BC283E9C4800DDDD47 /* UIView+.swift */; };
+		DAC137BF283F5B6F00DDDD47 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */; };
+		DAC137C1283F65EA00DDDD47 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137C0283F65EA00DDDD47 /* UITableView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +99,19 @@
 		DA992644283E52EF004C0FF6 /* ChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewModel.swift; sourceTree = "<group>"; };
 		DA992645283E52EF004C0FF6 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		DA992646283E52EF004C0FF6 /* ChecklistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChecklistViewController.storyboard; sourceTree = "<group>"; };
+		DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkCell.swift; sourceTree = "<group>"; };
+		DAC137A9283E9B0900DDDD47 /* SeparatorRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorRowTableViewCell.xib; sourceTree = "<group>"; };
+		DAC137AA283E9B0900DDDD47 /* SeparatorRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorRowTableViewCell.swift; sourceTree = "<group>"; };
+		DAC137AB283E9B0A00DDDD47 /* SeparatorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorRowView.swift; sourceTree = "<group>"; };
+		DAC137AC283E9B0A00DDDD47 /* SeparatorRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorRowView.xib; sourceTree = "<group>"; };
+		DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChecklistRowView.xib; path = Checklists/View/Components/ChecklistRow/ChecklistRowView.xib; sourceTree = SOURCE_ROOT; };
+		DAC137B2283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistRowTableViewCell.swift; path = Checklists/View/Components/ChecklistRow/ChecklistRowTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		DAC137B3283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChecklistRowTableViewCell.xib; path = Checklists/View/Components/ChecklistRow/ChecklistRowTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistRowView.swift; path = Checklists/View/Components/ChecklistRow/ChecklistRowView.swift; sourceTree = SOURCE_ROOT; };
+		DAC137BA283E9C0700DDDD47 /* ReusableNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableNibView.swift; sourceTree = "<group>"; };
+		DAC137BC283E9C4800DDDD47 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		DAC137C0283F65EA00DDDD47 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +165,7 @@
 				DA992620283E1EB7004C0FF6 /* Coordinator */,
 				DA992604283E10C6004C0FF6 /* Application */,
 				DA992615283E171A004C0FF6 /* Scene */,
+				DAC1379B283E973100DDDD47 /* View */,
 				DA992616283E174E004C0FF6 /* Resource */,
 			);
 			path = Checklists;
@@ -296,6 +323,59 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		DAC1379B283E973100DDDD47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137B9283E9BE700DDDD47 /* UIKit */,
+				DAC1379C283E973E00DDDD47 /* Components */,
+				DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */,
+				DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAC1379C283E973E00DDDD47 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137A8283E9ACF00DDDD47 /* Separator */,
+				DAC1379F283E98CA00DDDD47 /* ChecklistRow */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DAC1379F283E98CA00DDDD47 /* ChecklistRow */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137B2283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift */,
+				DAC137B3283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib */,
+				DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */,
+				DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */,
+			);
+			name = ChecklistRow;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DAC137A8283E9ACF00DDDD47 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137A9283E9B0900DDDD47 /* SeparatorRowTableViewCell.xib */,
+				DAC137AA283E9B0900DDDD47 /* SeparatorRowTableViewCell.swift */,
+				DAC137AB283E9B0A00DDDD47 /* SeparatorRowView.swift */,
+				DAC137AC283E9B0A00DDDD47 /* SeparatorRowView.xib */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
+		DAC137B9283E9BE700DDDD47 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137BA283E9C0700DDDD47 /* ReusableNibView.swift */,
+				DAC137BC283E9C4800DDDD47 /* UIView+.swift */,
+				DAC137C0283F65EA00DDDD47 /* UITableView+.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -404,8 +484,12 @@
 			files = (
 				DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */,
 				DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */,
+				DAC137B5283E9B3F00DDDD47 /* ChecklistRowView.xib in Resources */,
+				DAC137B0283E9B0A00DDDD47 /* SeparatorRowView.xib in Resources */,
 				DA992649283E52EF004C0FF6 /* ChecklistViewController.storyboard in Resources */,
+				DAC137B7283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib in Resources */,
 				DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */,
+				DAC137AD283E9B0A00DDDD47 /* SeparatorRowTableViewCell.xib in Resources */,
 				DA9925E1283E0DD7004C0FF6 /* LaunchScreen.storyboard in Resources */,
 				DA9925DE283E0DD7004C0FF6 /* Assets.xcassets in Resources */,
 			);
@@ -474,20 +558,29 @@
 				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
 				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
 				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,
+				DAC137AF283E9B0A00DDDD47 /* SeparatorRowView.swift in Sources */,
 				DA992648283E52EF004C0FF6 /* ChecklistViewController.swift in Sources */,
 				DA992647283E52EF004C0FF6 /* ChecklistViewModel.swift in Sources */,
 				DA99263B283E4F67004C0FF6 /* Instantiable+.swift in Sources */,
+				DAC137C1283F65EA00DDDD47 /* UITableView+.swift in Sources */,
 				DA992640283E5213004C0FF6 /* BaseUIViewController.swift in Sources */,
 				DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */,
+				DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */,
 				DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */,
 				DA992612283E161F004C0FF6 /* CombineTimer.swift in Sources */,
+				DAC137BD283E9C4800DDDD47 /* UIView+.swift in Sources */,
 				DA99260D283E149C004C0FF6 /* UILabel+.swift in Sources */,
+				DAC137BF283F5B6F00DDDD47 /* ShadowView.swift in Sources */,
 				DA992642283E5225004C0FF6 /* BaseUITableViewController.swift in Sources */,
 				DA9925D5283E0DD5004C0FF6 /* AppDelegate.swift in Sources */,
+				DAC137AE283E9B0A00DDDD47 /* SeparatorRowTableViewCell.swift in Sources */,
 				DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */,
 				DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */,
+				DAC137B6283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift in Sources */,
 				DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */,
+				DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */,
 				DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */,
+				DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
