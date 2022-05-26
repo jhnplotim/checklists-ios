@@ -38,3 +38,5 @@
 
 "feature.checklists.add.title" = "Add Item";
 
+"feature.checklists.add.placeholder" = "Name of the item";
+

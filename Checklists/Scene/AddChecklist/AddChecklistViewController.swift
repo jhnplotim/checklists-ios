@@ -84,6 +84,7 @@ extension AddChecklistViewController {
     private func setupView() {
         navigationItem.title = C.navigationTitle
         navigationItem.largeTitleDisplayMode = .never
+        textField.placeholder = L.Feature.Checklists.Add.placeholder
     }
 
 }

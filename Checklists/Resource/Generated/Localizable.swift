@@ -50,6 +50,8 @@ internal enum L {
       /// Checklists
       internal static let title = L.tr("Localizable", "feature.checklists.title")
       internal enum Add {
+        /// Name of the item
+        internal static let placeholder = L.tr("Localizable", "feature.checklists.add.placeholder")
         /// Add Item
         internal static let title = L.tr("Localizable", "feature.checklists.add.title")
       }
