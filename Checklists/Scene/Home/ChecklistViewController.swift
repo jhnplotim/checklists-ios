@@ -44,6 +44,23 @@ final class ChecklistViewController: BaseUITableViewController {
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - Actions
+    @IBAction func addItem() {
+        // Position to insert item
+        let newRowIndex = items.count
+
+        // Build item to insert
+        let item = Item.checklistRow(model: ChecklistRowView.Model(title: "I am a new row", isChecked: false))
+          
+        // Append item to list
+        items.append(item)
+
+        // Updated the table view
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+    }
 
 }
 
@@ -68,6 +85,7 @@ extension ChecklistViewController {
 
     private func setupView() {
         navigationItem.title = C.navigationTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
@@ -137,7 +155,16 @@ extension ChecklistViewController {
         }
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: true)
-        // Reload the table view
-        tableView.reloadData()
+        // Reload the table view at selected path
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // 1
+        items.remove(at: indexPath.row)
+        
+        // 2
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
     }
 }
