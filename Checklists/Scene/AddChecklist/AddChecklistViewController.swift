@@ -9,7 +9,7 @@ import UIKit
 import Combine
  
 protocol AddChecklistViewDelegate: AnyObject {
-    
+    func preload(editItem: ChecklistRowView.Model)
 }
 
 // MARK: - Class
@@ -52,7 +52,7 @@ final class AddChecklistViewController: BaseUITableViewController, UITextFieldDe
         if !value.isEmpty {
             print("Contents of the text field: \(value)")
             // TODO: Handle empty inputs
-            viewModel.addItem(titleName: value)
+            viewModel.itemAddedOrEdited(titleName: value)
         }
         viewModel.goBack()
     }
@@ -93,6 +93,9 @@ extension AddChecklistViewController {
 // MARK: - AddChecklistViewDelegate
 
 extension AddChecklistViewController: AddChecklistViewDelegate {
+    func preload(editItem: ChecklistRowView.Model) {
+        textField.text = editItem.title
+    }
     
 }
 

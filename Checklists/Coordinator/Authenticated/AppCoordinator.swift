@@ -11,7 +11,9 @@ import Combine
 // MARK: - Router Interface
 
 protocol AppRoute: AnyObject {
-    func goToAddCheckListItem(completion: ((ChecklistRowView.Model) -> Void)?)
+    func goToAddCheckListItem(completion: AddOrEditCheckList?)
+    
+    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckList?)
     /// Pop to prev view controller (if current is pushed onto stack)
     func popToPrevious()
 }
@@ -39,7 +41,11 @@ final class AppCoordinator: Coordinator {
 // MARK: - Router implementation
 
 extension AppCoordinator: AppRoute {
-    func goToAddCheckListItem(completion: ((ChecklistRowView.Model) -> Void)?) {
+    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckList?) {
+        push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self, itemToEdit: (position, item))))
+    }
+    
+    func goToAddCheckListItem(completion: AddOrEditCheckList?) {
         push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self)))
     }
     

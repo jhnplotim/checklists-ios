@@ -13,6 +13,8 @@ protocol ChecklistVM: AnyObject {
 
 protocol ChecklistTransition: AnyObject {
     func goToAddItem()
+    
+    func goToEdit(item: ChecklistRowView.Model, at position: Int)
 
 }
 
@@ -47,15 +49,23 @@ extension ChecklistViewModel: ChecklistVM {
 // MARK: - ChecklistTransition
 
 extension ChecklistViewModel: ChecklistTransition {
+    func goToEdit(item: ChecklistRowView.Model, at position: Int) {
+        route?.goToEditCheckListItem(item: item, at: position, completion: addOrEditItemCompletion)
+    }
+    
     func goToAddItem() {
-        route?.goToAddCheckListItem(completion: addItem)
+        route?.goToAddCheckListItem(completion: addOrEditItemCompletion)
     }
 }
 
 // MARK: - Private
 
 extension ChecklistViewModel {
-    func addItem(addedItem: ChecklistRowView.Model) {
-        self.viewDelegate?.addItem(newItem: addedItem)
+    func addOrEditItemCompletion(item: ChecklistRowView.Model, at position: Int? = nil) {
+        if let position = position {
+            self.viewDelegate?.update(item: item, at: position)
+        } else {
+            self.viewDelegate?.add(newItem: item)
+        }
     }
 }

@@ -33,7 +33,7 @@
             <connections>
                 <outlet property="contentXib" destination="jXk-99-gDr" id="lbD-MV-uv8"/>
             </connections>
-            <point key="canvasLocation" x="-561" y="153"/>
+            <point key="canvasLocation" x="-562.31884057971024" y="152.67857142857142"/>
         </tableViewCell>
     </objects>
 </document>

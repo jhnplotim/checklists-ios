@@ -9,7 +9,8 @@ import UIKit
 import Combine
  
 protocol ChecklistViewDelegate: AnyObject {
-    func addItem(newItem: ChecklistRowView.Model)
+    func add(newItem: ChecklistRowView.Model)
+    func update(item: ChecklistRowView.Model, at position: Int)
 }
 
 // MARK: - Class
@@ -103,7 +104,16 @@ extension ChecklistViewController {
 // MARK: - ChecklistViewDelegate
 
 extension ChecklistViewController: ChecklistViewDelegate {
-    func addItem(newItem: ChecklistRowView.Model) {
+    func update(item: ChecklistRowView.Model, at position: Int) {
+        // Update item in list
+        items[position] = Item.checklistRow(model: item)
+        // path of index to update
+        let path = [IndexPath(row: position, section: 0)]
+        // Update table view
+        tableView.reloadRows(at: path, with: .automatic)
+    }
+    
+    func add(newItem: ChecklistRowView.Model) {
         // Position to insert item
         let newRowIndex = items.count
 
@@ -157,5 +167,11 @@ extension ChecklistViewController {
         // 2
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        if case let .checklistRow(model) = items[indexPath.row] {
+            viewModel.goToEdit(item: model, at: indexPath.row)
+        }
     }
 }
