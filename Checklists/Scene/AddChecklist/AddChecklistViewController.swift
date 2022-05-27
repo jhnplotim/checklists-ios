@@ -97,6 +97,7 @@ extension AddChecklistViewController: AddChecklistViewDelegate {
     func preload(editItem: ChecklistRowView.Model) {
         textField.text = editItem.title
         navigationItem.title = C.editItemTitle
+        doneBarBtn.isEnabled = true
     }
     
 }
