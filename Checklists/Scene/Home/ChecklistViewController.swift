@@ -89,7 +89,7 @@ extension ChecklistViewController {
                  Item.checklistRow(model: ChecklistRowView.Model(title: "Apply to Apple", isChecked: false)),
                  Item.checklistRow(model: ChecklistRowView.Model(title: "Apply to Netflix", isChecked: false)),
                  Item.checklistRow(model: ChecklistRowView.Model(title: "Finish Naturalisation Test app", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Build naturalisation app backend", isChecked: true))]
+                 Item.checklistRow(model: ChecklistRowView.Model(title: "Build naturalisation app backend and go out tonight", isChecked: true))]
         tableView.reloadData()
     }
     
@@ -133,14 +133,6 @@ extension ChecklistViewController {
             
         case .checklistRow(model: let model):
             let cell = tableView.dequeueReusableCell(fromClass: ChecklistRowTableViewCell.self, for: indexPath)
-            
-            if model.isChecked {
-                // Toggle checkmark
-                cell?.accessoryType = .checkmark
-            } else {
-                // Remove check mark
-                cell?.accessoryType = .none
-            }
             
             cell?.setup(model: model)
             return cell ?? UITableViewCell()

@@ -10,6 +10,11 @@ import UIKit
 // MARK: - Class
 
 final class ChecklistRowView: ReusableNibView {
+    
+    private enum C {
+        static let checkedText = "√"
+        static let uncheckedText = " "
+    }
 
     struct Model {
         let title: String
@@ -17,6 +22,7 @@ final class ChecklistRowView: ReusableNibView {
     }
 
     // MARK: - Outlet
+    @IBOutlet weak var checkBoxLabel: UILabel!
     @IBOutlet weak var titleLabel: Label!
     
     // MARK: - Variable
@@ -34,6 +40,7 @@ final class ChecklistRowView: ReusableNibView {
     func setup(_ model: Model) {
         self.model = model
         titleLabel.text = model.title
+        checkBoxLabel.text = model.isChecked ? C.checkedText : C.uncheckedText
     }
 
 }
