@@ -17,7 +17,7 @@ protocol ChecklistViewDelegate: AnyObject {
 
 final class ChecklistViewController: BaseUITableViewController {
     
-    enum Item {
+    enum Item: Codable {
         
         case checklistRow(model: ChecklistRowView.Model)
         
@@ -38,6 +38,7 @@ final class ChecklistViewController: BaseUITableViewController {
 
     private enum C {
         static let navigationTitle = L.Feature.Checklists.title
+        static let fileName = "Checklists.plist"
     }
 
     // MARK: - Variable
@@ -63,7 +64,7 @@ extension ChecklistViewController {
         setupView()
         registerCells()
         viewModel.setup(viewDelegate: self)
-        loadItems()
+        loadChecklistItems()
     }
 
 }
@@ -78,25 +79,8 @@ extension ChecklistViewController {
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    private func loadItems() {
-        items = [Item.checklistRow(model: ChecklistRowView.Model(title: "Shopping", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Dubai Trip", isChecked: true)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Soccer", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Learn ML in Python", isChecked: true)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Go visit Bae", isChecked: true)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Do laundry", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Write Code", isChecked: true)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Apply to Google", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Apply to Apple", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Apply to Netflix", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Finish Naturalisation Test app", isChecked: false)),
-                 Item.checklistRow(model: ChecklistRowView.Model(title: "Build naturalisation app backend and go out tonight", isChecked: true))]
-        tableView.reloadData()
-    }
-    
     private func registerCells() {
         tableView.registerCell(fromClass: ChecklistRowTableViewCell.self)
-        tableView.registerCell(fromClass: SeparatorRowTableViewCell.self)
     }
 
 }
@@ -111,6 +95,7 @@ extension ChecklistViewController: ChecklistViewDelegate {
         let path = [IndexPath(row: position, section: 0)]
         // Update table view
         tableView.reloadRows(at: path, with: .automatic)
+        saveChecklistItems()
     }
     
     func add(newItem: ChecklistRowView.Model) {
@@ -124,6 +109,7 @@ extension ChecklistViewController: ChecklistViewDelegate {
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
+        saveChecklistItems()
     }
 }
 
@@ -158,6 +144,7 @@ extension ChecklistViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         // Reload the table view at selected path
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        saveChecklistItems()
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -167,11 +154,62 @@ extension ChecklistViewController {
         // 2
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+        saveChecklistItems()
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if case let .checklistRow(model) = items[indexPath.row] {
             viewModel.goToEdit(item: model, at: indexPath.row)
         }
+    }
+}
+
+// Storage
+// TODO: Extract this into a storage manager
+extension ChecklistViewController {
+    func documentsDirectory() -> URL {
+      let paths = FileManager.default.urls(for: .documentDirectory,
+                                            in: .userDomainMask)
+      return paths[0]
+    }
+
+    func dataFilePath() -> URL {
+      return documentsDirectory().appendingPathComponent(
+        C.fileName)
+    }
+    
+    func saveChecklistItems() {
+      // 1
+      let encoder = PropertyListEncoder()
+      // 2
+      do {
+        // 3
+        let data = try encoder.encode(items)
+        // 4
+        try data.write(to: dataFilePath(),
+                  options: Data.WritingOptions.atomic)
+        // 5
+      } catch {
+        // 6
+        print("Error encoding item array: \(error.localizedDescription)")
+      }
+    }
+    
+    func loadChecklistItems() {
+      // 1
+      let path = dataFilePath()
+      // 2
+      if let data = try? Data(contentsOf: path) {
+        // 3
+        let decoder = PropertyListDecoder()
+        do {
+          // 4
+          items = try decoder.decode([Item].self,
+                                     from: data)
+        } catch {
+          print("Error decoding item array: \(error.localizedDescription)")
+        }
+      }
     }
 }

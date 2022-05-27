@@ -16,7 +16,7 @@ final class ChecklistRowView: ReusableNibView {
         static let uncheckedText = " "
     }
 
-    struct Model {
+    struct Model: Codable {
         let title: String
         let isChecked: Bool
     }
