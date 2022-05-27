@@ -32,7 +32,8 @@ final class AddChecklistViewController: BaseUITableViewController, UITextFieldDe
     // MARK: - Constant
 
     private enum C {
-        static let navigationTitle = L.Feature.Checklists.Add.title
+        static let addItemTitle = L.Feature.Checklists.Add.title
+        static let editItemTitle = L.Feature.Checklists.Edit.title
     }
 
     // MARK: - Variable
@@ -82,7 +83,7 @@ extension AddChecklistViewController {
 extension AddChecklistViewController {
 
     private func setupView() {
-        navigationItem.title = C.navigationTitle
+        navigationItem.title = C.addItemTitle
         navigationItem.largeTitleDisplayMode = .never
         textField.placeholder = L.Feature.Checklists.Add.placeholder
         textField.delegate = self
@@ -95,6 +96,7 @@ extension AddChecklistViewController {
 extension AddChecklistViewController: AddChecklistViewDelegate {
     func preload(editItem: ChecklistRowView.Model) {
         textField.text = editItem.title
+        navigationItem.title = C.editItemTitle
     }
     
 }
