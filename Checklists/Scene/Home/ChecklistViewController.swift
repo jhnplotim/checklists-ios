@@ -47,7 +47,7 @@ final class ChecklistViewController: BaseUITableViewController {
     
     // MARK: - Actions
     @IBAction func addItem() {
-        viewModel.addItem()
+        viewModel.goToAddItem()
     }
 
 }

@@ -13,7 +13,7 @@ protocol AddChecklistVM: AnyObject {
 }
 
 protocol AddChecklistTransition: AnyObject {
-
+    func goBack()
 }
 
 final class AddChecklistViewModel {
@@ -21,6 +21,7 @@ final class AddChecklistViewModel {
     // typealias DI = AnyObject
     typealias AddCheckList = ((ChecklistRowView.Model) -> Void)
 
+    private weak var route: AppRoute?
     private var completion: AddCheckList?
     private weak var viewDelegate: AddChecklistViewDelegate?
 
@@ -28,8 +29,9 @@ final class AddChecklistViewModel {
 
     // MARK: - Constructor
 
-    init(completion: AddCheckList?) {
+    init(completion: AddCheckList? = nil, route: AppRoute? = nil) {
         self.completion = completion
+        self.route = route
     }
 
 }
@@ -50,7 +52,9 @@ extension AddChecklistViewModel: AddChecklistVM {
 // MARK: - AddChecklistTransition
 
 extension AddChecklistViewModel: AddChecklistTransition {
-    
+    func goBack() {
+        route?.popToPrevious()
+    }
 }
 
 // MARK: - Private

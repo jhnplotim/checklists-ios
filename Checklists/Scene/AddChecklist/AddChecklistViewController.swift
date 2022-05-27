@@ -42,7 +42,7 @@ final class AddChecklistViewController: BaseUITableViewController, UITextFieldDe
     
     // MARK: - Actions
     @IBAction func cancel() {
-        navigationController?.popViewController(animated: true)
+        viewModel.goBack()
     }
 
     @IBAction func done() {
@@ -54,8 +54,7 @@ final class AddChecklistViewController: BaseUITableViewController, UITextFieldDe
             // TODO: Handle empty inputs
             viewModel.addItem(titleName: value)
         }
-        
-        navigationController?.popViewController(animated: true)
+        viewModel.goBack()
     }
 
 }

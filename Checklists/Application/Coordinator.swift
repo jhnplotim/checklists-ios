@@ -62,6 +62,12 @@ extension Coordinator {
         navigationController.popToViewController(controller, animated: animated)
     }
     
+    func pop(animated: Bool = true) {
+        if navigationController.viewControllers.count > 1 {
+            navigationController.popViewController(animated: animated)
+        }
+    }
+    
     func popToRoot(animated: Bool) {
         navigationController.popToRootViewController(animated: animated)
     }

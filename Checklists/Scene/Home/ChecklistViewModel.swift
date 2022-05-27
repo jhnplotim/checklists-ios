@@ -12,7 +12,7 @@ protocol ChecklistVM: AnyObject {
 }
 
 protocol ChecklistTransition: AnyObject {
-    func addItem()
+    func goToAddItem()
 
 }
 
@@ -47,8 +47,8 @@ extension ChecklistViewModel: ChecklistVM {
 // MARK: - ChecklistTransition
 
 extension ChecklistViewModel: ChecklistTransition {
-    func addItem() {
-        route?.addCheckListItem(completion: addItem)
+    func goToAddItem() {
+        route?.goToAddCheckListItem(completion: addItem)
     }
 }
 
