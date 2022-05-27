@@ -1,0 +1,44 @@
+/********** General **********/
+
+"app.name" = "Checklists";
+
+
+/********** General Buttons **********/
+
+"button.close" = "Close";
+
+"button.all" = "All";
+
+"button.sendData" = "Send Data";
+
+"button.tryAgain" = "Try Again";
+
+"button.ok" = "OK";
+
+"button.settings" = "Settings";
+
+"button.delete" = "Delete";
+
+"button.done" = "Done";
+
+"button.cancel" = "Cancel";
+
+"button.yes" = "Yes";
+
+"button.no" = "No";
+
+"button.Confirm" = "Confirm";
+
+"button.recover" = "Recover";
+
+
+/********** Checklist **********/
+
+"feature.checklists.title" = "Checklists";
+
+"feature.checklists.add.title" = "Add Item";
+
+"feature.checklists.edit.title" = "Edit Item";
+
+"feature.checklists.add.placeholder" = "Name of the item";
+

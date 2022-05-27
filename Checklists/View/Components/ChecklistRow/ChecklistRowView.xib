@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChecklistRowView" customModule="Checklists" customModuleProvider="target">
+            <connections>
+                <outlet property="checkBoxLabel" destination="PA9-QG-bXV" id="QbU-IN-f0f"/>
+                <outlet property="titleLabel" destination="XR5-qx-M9c" id="rZF-GL-OWP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Sve-XQ-gdM">
+                    <rect key="frame" x="16" y="0.0" width="382" height="300"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA9-QG-bXV">
+                            <rect key="frame" x="0.0" y="0.0" width="25" height="300"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="OTD-HV-Q81"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR5-qx-M9c" customClass="Label" customModule="Checklists" customModuleProvider="target">
+                            <rect key="frame" x="25" y="0.0" width="357" height="300"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="DarkGray"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="mainRegular" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="XR5-qx-M9c" firstAttribute="top" secondItem="Sve-XQ-gdM" secondAttribute="top" id="1kO-vF-s4V"/>
+                        <constraint firstItem="XR5-qx-M9c" firstAttribute="leading" secondItem="PA9-QG-bXV" secondAttribute="trailing" id="ICi-lP-zzc"/>
+                        <constraint firstAttribute="trailing" secondItem="XR5-qx-M9c" secondAttribute="trailing" id="jYY-mL-LMu"/>
+                        <constraint firstAttribute="bottom" secondItem="XR5-qx-M9c" secondAttribute="bottom" id="waA-0n-rh3"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Sve-XQ-gdM" secondAttribute="bottom" id="CHF-ss-ief"/>
+                <constraint firstItem="Sve-XQ-gdM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PIq-2B-V6x"/>
+                <constraint firstAttribute="trailing" secondItem="Sve-XQ-gdM" secondAttribute="trailing" constant="16" id="hfb-L0-PTG"/>
+                <constraint firstItem="Sve-XQ-gdM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kmy-bV-ks7"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="127"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="DarkGray">
+            <color red="0.41176470588235292" green="0.44313725490196076" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

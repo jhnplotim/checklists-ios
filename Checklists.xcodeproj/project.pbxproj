@@ -7,15 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */; };
+		7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */; };
+		7EF05AE2283FDFD900F4873B /* AddChecklistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */; };
 		DA9925D5283E0DD5004C0FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */; };
 		DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */; };
-		DA9925D9283E0DD5004C0FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925D8283E0DD5004C0FF6 /* ViewController.swift */; };
-		DA9925DC283E0DD5004C0FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9925DA283E0DD5004C0FF6 /* Main.storyboard */; };
 		DA9925DE283E0DD7004C0FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */; };
 		DA9925E1283E0DD7004C0FF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9925DF283E0DD7004C0FF6 /* LaunchScreen.storyboard */; };
 		DA9925EC283E0DD7004C0FF6 /* ChecklistsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925EB283E0DD7004C0FF6 /* ChecklistsTests.swift */; };
 		DA9925F6283E0DD7004C0FF6 /* ChecklistsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925F5283E0DD7004C0FF6 /* ChecklistsUITests.swift */; };
 		DA9925F8283E0DD7004C0FF6 /* ChecklistsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9925F7283E0DD7004C0FF6 /* ChecklistsUITestsLaunchTests.swift */; };
+		DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99260A283E145A004C0FF6 /* UIFont+.swift */; };
+		DA99260D283E149C004C0FF6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99260C283E149C004C0FF6 /* UILabel+.swift */; };
+		DA992610283E15DB004C0FF6 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99260F283E15DB004C0FF6 /* Animator.swift */; };
+		DA992612283E161F004C0FF6 /* CombineTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992611283E161F004C0FF6 /* CombineTimer.swift */; };
+		DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992613283E1673004C0FF6 /* GesturePublisher.swift */; };
+		DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992621283E1F53004C0FF6 /* Coordinator.swift */; };
+		DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992625283E2165004C0FF6 /* RootCoordinator.swift */; };
+		DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992629283E223D004C0FF6 /* AppCoordinator.swift */; };
+		DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262C283E26CF004C0FF6 /* .swiftlint.yml */; };
+		DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262E283E274C004C0FF6 /* swiftgen.yml */; };
+		DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA992633283E28FB004C0FF6 /* Localizable.strings */; };
+		DA992638283E2B03004C0FF6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992636283E2B03004C0FF6 /* Assets.swift */; };
+		DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992637283E2B03004C0FF6 /* Localizable.swift */; };
+		DA99263B283E4F67004C0FF6 /* Instantiable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99263A283E4F67004C0FF6 /* Instantiable+.swift */; };
+		DA992640283E5213004C0FF6 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99263F283E5213004C0FF6 /* BaseUIViewController.swift */; };
+		DA992642283E5225004C0FF6 /* BaseUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992641283E5225004C0FF6 /* BaseUITableViewController.swift */; };
+		DA992647283E52EF004C0FF6 /* ChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992644283E52EF004C0FF6 /* ChecklistViewModel.swift */; };
+		DA992648283E52EF004C0FF6 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992645283E52EF004C0FF6 /* ChecklistViewController.swift */; };
+		DA992649283E52EF004C0FF6 /* ChecklistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA992646283E52EF004C0FF6 /* ChecklistViewController.storyboard */; };
+		DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */; };
+		DAC137AD283E9B0A00DDDD47 /* SeparatorRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137A9283E9B0900DDDD47 /* SeparatorRowTableViewCell.xib */; };
+		DAC137AE283E9B0A00DDDD47 /* SeparatorRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137AA283E9B0900DDDD47 /* SeparatorRowTableViewCell.swift */; };
+		DAC137AF283E9B0A00DDDD47 /* SeparatorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137AB283E9B0A00DDDD47 /* SeparatorRowView.swift */; };
+		DAC137B0283E9B0A00DDDD47 /* SeparatorRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137AC283E9B0A00DDDD47 /* SeparatorRowView.xib */; };
+		DAC137B5283E9B3F00DDDD47 /* ChecklistRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */; };
+		DAC137B6283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137B2283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift */; };
+		DAC137B7283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC137B3283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib */; };
+		DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */; };
+		DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137BA283E9C0700DDDD47 /* ReusableNibView.swift */; };
+		DAC137BD283E9C4800DDDD47 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137BC283E9C4800DDDD47 /* UIView+.swift */; };
+		DAC137BF283F5B6F00DDDD47 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */; };
+		DAC137C1283F65EA00DDDD47 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC137C0283F65EA00DDDD47 /* UITableView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +69,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistViewModel.swift; sourceTree = "<group>"; };
+		7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistViewController.swift; sourceTree = "<group>"; };
+		7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddChecklistViewController.storyboard; sourceTree = "<group>"; };
 		DA9925D1283E0DD5004C0FF6 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA9925D8283E0DD5004C0FF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA9925DB283E0DD5004C0FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA9925E0283E0DD7004C0FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA9925E2283E0DD7004C0FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +83,41 @@
 		DA9925F1283E0DD7004C0FF6 /* ChecklistsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecklistsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9925F5283E0DD7004C0FF6 /* ChecklistsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsUITests.swift; sourceTree = "<group>"; };
 		DA9925F7283E0DD7004C0FF6 /* ChecklistsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DA99260A283E145A004C0FF6 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		DA99260C283E149C004C0FF6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		DA99260F283E15DB004C0FF6 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		DA992611283E161F004C0FF6 /* CombineTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTimer.swift; sourceTree = "<group>"; };
+		DA992613283E1673004C0FF6 /* GesturePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturePublisher.swift; sourceTree = "<group>"; };
+		DA99261D283E18AC004C0FF6 /* development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = development.xcconfig; sourceTree = "<group>"; };
+		DA99261E283E18C7004C0FF6 /* test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = test.xcconfig; sourceTree = "<group>"; };
+		DA99261F283E18E6004C0FF6 /* production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = production.xcconfig; sourceTree = "<group>"; };
+		DA992621283E1F53004C0FF6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DA992625283E2165004C0FF6 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		DA992629283E223D004C0FF6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DA99262C283E26CF004C0FF6 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		DA99262E283E274C004C0FF6 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		DA992634283E28FB004C0FF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		DA992636283E2B03004C0FF6 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		DA992637283E2B03004C0FF6 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		DA99263A283E4F67004C0FF6 /* Instantiable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Instantiable+.swift"; sourceTree = "<group>"; };
+		DA99263F283E5213004C0FF6 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		DA992641283E5225004C0FF6 /* BaseUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableViewController.swift; sourceTree = "<group>"; };
+		DA992644283E52EF004C0FF6 /* ChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewModel.swift; sourceTree = "<group>"; };
+		DA992645283E52EF004C0FF6 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		DA992646283E52EF004C0FF6 /* ChecklistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChecklistViewController.storyboard; sourceTree = "<group>"; };
+		DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkCell.swift; sourceTree = "<group>"; };
+		DAC137A9283E9B0900DDDD47 /* SeparatorRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorRowTableViewCell.xib; sourceTree = "<group>"; };
+		DAC137AA283E9B0900DDDD47 /* SeparatorRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorRowTableViewCell.swift; sourceTree = "<group>"; };
+		DAC137AB283E9B0A00DDDD47 /* SeparatorRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorRowView.swift; sourceTree = "<group>"; };
+		DAC137AC283E9B0A00DDDD47 /* SeparatorRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorRowView.xib; sourceTree = "<group>"; };
+		DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChecklistRowView.xib; path = Checklists/View/Components/ChecklistRow/ChecklistRowView.xib; sourceTree = SOURCE_ROOT; };
+		DAC137B2283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistRowTableViewCell.swift; path = Checklists/View/Components/ChecklistRow/ChecklistRowTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		DAC137B3283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChecklistRowTableViewCell.xib; path = Checklists/View/Components/ChecklistRow/ChecklistRowTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistRowView.swift; path = Checklists/View/Components/ChecklistRow/ChecklistRowView.swift; sourceTree = SOURCE_ROOT; };
+		DAC137BA283E9C0700DDDD47 /* ReusableNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableNibView.swift; sourceTree = "<group>"; };
+		DAC137BC283E9C4800DDDD47 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		DAC137C0283F65EA00DDDD47 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +145,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EF05ADC283FDFA900F4873B /* AddChecklist */ = {
+			isa = PBXGroup;
+			children = (
+				7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */,
+				7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */,
+				7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */,
+			);
+			path = AddChecklist;
+			sourceTree = "<group>";
+		};
 		DA9925C8283E0DD5004C0FF6 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +178,11 @@
 		DA9925D3283E0DD5004C0FF6 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */,
-				DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */,
-				DA9925D8283E0DD5004C0FF6 /* ViewController.swift */,
-				DA9925DA283E0DD5004C0FF6 /* Main.storyboard */,
-				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
-				DA9925DF283E0DD7004C0FF6 /* LaunchScreen.storyboard */,
-				DA9925E2283E0DD7004C0FF6 /* Info.plist */,
+				DA992620283E1EB7004C0FF6 /* Coordinator */,
+				DA992604283E10C6004C0FF6 /* Application */,
+				DA992615283E171A004C0FF6 /* Scene */,
+				DAC1379B283E973100DDDD47 /* View */,
+				DA992616283E174E004C0FF6 /* Resource */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -127,6 +204,195 @@
 			path = ChecklistsUITests;
 			sourceTree = "<group>";
 		};
+		DA992604283E10C6004C0FF6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA99261C283E1869004C0FF6 /* Configuration */,
+				DA99260E283E15C4004C0FF6 /* Helpers */,
+				DA992609283E132A004C0FF6 /* Extension */,
+				DA9925E2283E0DD7004C0FF6 /* Info.plist */,
+				DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */,
+				DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */,
+				DA992621283E1F53004C0FF6 /* Coordinator.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA992609283E132A004C0FF6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DA99260A283E145A004C0FF6 /* UIFont+.swift */,
+				DA99260C283E149C004C0FF6 /* UILabel+.swift */,
+				DA99263A283E4F67004C0FF6 /* Instantiable+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DA99260E283E15C4004C0FF6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DA99260F283E15DB004C0FF6 /* Animator.swift */,
+				DA992611283E161F004C0FF6 /* CombineTimer.swift */,
+				DA992613283E1673004C0FF6 /* GesturePublisher.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DA992615283E171A004C0FF6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				7EF05ADC283FDFA900F4873B /* AddChecklist */,
+				DA992643283E52CD004C0FF6 /* Home */,
+				DA99263E283E51F0004C0FF6 /* Base */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DA992616283E174E004C0FF6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DA992632283E28FB004C0FF6 /* en.lproj */,
+				DA992630283E27AF004C0FF6 /* Generated */,
+				DA99262E283E274C004C0FF6 /* swiftgen.yml */,
+				DA99262C283E26CF004C0FF6 /* .swiftlint.yml */,
+				DA992617283E1767004C0FF6 /* LaunchScreen */,
+				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA992617283E1767004C0FF6 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DA9925DF283E0DD7004C0FF6 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		DA99261C283E1869004C0FF6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DA99261D283E18AC004C0FF6 /* development.xcconfig */,
+				DA99261E283E18C7004C0FF6 /* test.xcconfig */,
+				DA99261F283E18E6004C0FF6 /* production.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DA992620283E1EB7004C0FF6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DA992628283E221D004C0FF6 /* UnAuthenticated */,
+				DA992627283E2212004C0FF6 /* Authenticated */,
+				DA992625283E2165004C0FF6 /* RootCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DA992627283E2212004C0FF6 /* Authenticated */ = {
+			isa = PBXGroup;
+			children = (
+				DA992629283E223D004C0FF6 /* AppCoordinator.swift */,
+			);
+			path = Authenticated;
+			sourceTree = "<group>";
+		};
+		DA992628283E221D004C0FF6 /* UnAuthenticated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UnAuthenticated;
+			sourceTree = "<group>";
+		};
+		DA992630283E27AF004C0FF6 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				DA992636283E2B03004C0FF6 /* Assets.swift */,
+				DA992637283E2B03004C0FF6 /* Localizable.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		DA992632283E28FB004C0FF6 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				DA992633283E28FB004C0FF6 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		DA99263E283E51F0004C0FF6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DA99263F283E5213004C0FF6 /* BaseUIViewController.swift */,
+				DA992641283E5225004C0FF6 /* BaseUITableViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DA992643283E52CD004C0FF6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA992644283E52EF004C0FF6 /* ChecklistViewModel.swift */,
+				DA992645283E52EF004C0FF6 /* ChecklistViewController.swift */,
+				DA992646283E52EF004C0FF6 /* ChecklistViewController.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DAC1379B283E973100DDDD47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137B9283E9BE700DDDD47 /* UIKit */,
+				DAC1379C283E973E00DDDD47 /* Components */,
+				DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */,
+				DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAC1379C283E973E00DDDD47 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137A8283E9ACF00DDDD47 /* Separator */,
+				DAC1379F283E98CA00DDDD47 /* ChecklistRow */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DAC1379F283E98CA00DDDD47 /* ChecklistRow */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137B2283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift */,
+				DAC137B3283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib */,
+				DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */,
+				DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */,
+			);
+			name = ChecklistRow;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DAC137A8283E9ACF00DDDD47 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137A9283E9B0900DDDD47 /* SeparatorRowTableViewCell.xib */,
+				DAC137AA283E9B0900DDDD47 /* SeparatorRowTableViewCell.swift */,
+				DAC137AB283E9B0A00DDDD47 /* SeparatorRowView.swift */,
+				DAC137AC283E9B0A00DDDD47 /* SeparatorRowView.xib */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
+		DAC137B9283E9BE700DDDD47 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DAC137BA283E9C0700DDDD47 /* ReusableNibView.swift */,
+				DAC137BC283E9C4800DDDD47 /* UIView+.swift */,
+				DAC137C0283F65EA00DDDD47 /* UITableView+.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +400,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA9925FB283E0DD7004C0FF6 /* Build configuration list for PBXNativeTarget "Checklists" */;
 			buildPhases = (
+				DA992631283E286B004C0FF6 /* Swift Gen */,
 				DA9925CD283E0DD5004C0FF6 /* Sources */,
 				DA9925CE283E0DD5004C0FF6 /* Frameworks */,
 				DA9925CF283E0DD5004C0FF6 /* Resources */,
+				DA99262B283E2322004C0FF6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -231,9 +499,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */,
+				DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */,
+				DAC137B5283E9B3F00DDDD47 /* ChecklistRowView.xib in Resources */,
+				DAC137B0283E9B0A00DDDD47 /* SeparatorRowView.xib in Resources */,
+				DA992649283E52EF004C0FF6 /* ChecklistViewController.storyboard in Resources */,
+				DAC137B7283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib in Resources */,
+				DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */,
+				DAC137AD283E9B0A00DDDD47 /* SeparatorRowTableViewCell.xib in Resources */,
 				DA9925E1283E0DD7004C0FF6 /* LaunchScreen.storyboard in Resources */,
 				DA9925DE283E0DD7004C0FF6 /* Assets.xcassets in Resources */,
-				DA9925DC283E0DD5004C0FF6 /* Main.storyboard in Resources */,
+				7EF05AE2283FDFD900F4873B /* AddChecklistViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +529,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DA99262B283E2322004C0FF6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/scripts/swiftlint/swiftlint\"\n";
+		};
+		DA992631283E286B004C0FF6 /* Swift Gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/scripts/swiftgen/bin/swiftgen\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA9925CD283E0DD5004C0FF6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA9925D9283E0DD5004C0FF6 /* ViewController.swift in Sources */,
+				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
+				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
+				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,
+				DAC137AF283E9B0A00DDDD47 /* SeparatorRowView.swift in Sources */,
+				DA992648283E52EF004C0FF6 /* ChecklistViewController.swift in Sources */,
+				DA992647283E52EF004C0FF6 /* ChecklistViewModel.swift in Sources */,
+				DA99263B283E4F67004C0FF6 /* Instantiable+.swift in Sources */,
+				DAC137C1283F65EA00DDDD47 /* UITableView+.swift in Sources */,
+				DA992640283E5213004C0FF6 /* BaseUIViewController.swift in Sources */,
+				7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */,
+				DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */,
+				DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */,
+				DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */,
+				DA992612283E161F004C0FF6 /* CombineTimer.swift in Sources */,
+				DAC137BD283E9C4800DDDD47 /* UIView+.swift in Sources */,
+				DA99260D283E149C004C0FF6 /* UILabel+.swift in Sources */,
+				DAC137BF283F5B6F00DDDD47 /* ShadowView.swift in Sources */,
+				DA992642283E5225004C0FF6 /* BaseUITableViewController.swift in Sources */,
 				DA9925D5283E0DD5004C0FF6 /* AppDelegate.swift in Sources */,
+				DAC137AE283E9B0A00DDDD47 /* SeparatorRowTableViewCell.swift in Sources */,
+				DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */,
 				DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */,
+				DAC137B6283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift in Sources */,
+				DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */,
+				DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */,
+				DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */,
+				7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */,
+				DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +637,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DA9925DA283E0DD5004C0FF6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA9925DB283E0DD5004C0FF6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA9925DF283E0DD7004C0FF6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -313,11 +645,20 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		DA992633283E28FB004C0FF6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA992634283E28FB004C0FF6 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA9925F9283E0DD7004C0FF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA99261D283E18AC004C0FF6 /* development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -367,7 +708,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -379,6 +720,7 @@
 		};
 		DA9925FA283E0DD7004C0FF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA99261F283E18E6004C0FF6 /* production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -422,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -441,10 +783,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6278X7SZT4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Checklists/Info.plist;
+				INFOPLIST_FILE = Checklists/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,10 +811,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6278X7SZT4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Checklists/Info.plist;
+				INFOPLIST_FILE = Checklists/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -584,6 +926,144 @@
 			};
 			name = Release;
 		};
+		DA992618283E181A004C0FF6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA99261E283E18C7004C0FF6 /* test.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Beta;
+		};
+		DA992619283E181A004C0FF6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6278X7SZT4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Checklists/Application/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.checklists.Checklists;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Beta;
+		};
+		DA99261A283E181A004C0FF6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6278X7SZT4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.checklists.ChecklistsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Checklists.app/Checklists";
+			};
+			name = Beta;
+		};
+		DA99261B283E181A004C0FF6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6278X7SZT4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.checklists.ChecklistsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Checklists;
+			};
+			name = Beta;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -591,6 +1071,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA9925F9283E0DD7004C0FF6 /* Debug */,
+				DA992618283E181A004C0FF6 /* Beta */,
 				DA9925FA283E0DD7004C0FF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -600,6 +1081,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA9925FC283E0DD7004C0FF6 /* Debug */,
+				DA992619283E181A004C0FF6 /* Beta */,
 				DA9925FD283E0DD7004C0FF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -609,6 +1091,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA9925FF283E0DD7004C0FF6 /* Debug */,
+				DA99261A283E181A004C0FF6 /* Beta */,
 				DA992600283E0DD7004C0FF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -618,6 +1101,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA992602283E0DD7004C0FF6 /* Debug */,
+				DA99261B283E181A004C0FF6 /* Beta */,
 				DA992603283E0DD7004C0FF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
