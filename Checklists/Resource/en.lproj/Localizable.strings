@@ -34,6 +34,8 @@
 
 /********** Checklist **********/
 
+"feature.alllists.title" = "Checklists";
+
 "feature.checklists.title" = "Checklists";
 
 "feature.checklists.add.title" = "Add Item";

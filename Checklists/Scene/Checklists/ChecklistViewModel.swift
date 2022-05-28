@@ -32,7 +32,7 @@ final class ChecklistViewModel {
 
     // MARK: - Constructor
 
-    init(route: AppRoute? = nil, di: DI) {
+    init(di: DI, route: AppRoute? = nil) {
         self.di = di
         self.route = route
     }

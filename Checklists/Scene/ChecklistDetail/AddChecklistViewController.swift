@@ -84,6 +84,7 @@ extension AddChecklistViewController {
 
     private func setupView() {
         navigationItem.title = C.addItemTitle
+        // Disable large titles for this view controller
         navigationItem.largeTitleDisplayMode = .never
         textField.placeholder = L.Feature.Checklists.Add.placeholder
         textField.delegate = self

@@ -38,7 +38,7 @@ final class ChecklistViewController: BaseUITableViewController {
     // MARK: - Constant
 
     private enum C {
-        static let navigationTitle = L.Feature.Checklists.title
+        static let navigationTitle = "(Name of the Checklist)"
         static let fileName = "Checklists.plist"
     }
 
@@ -76,14 +76,15 @@ extension ChecklistViewController {
 
     private func setupView() {
         navigationItem.title = C.navigationTitle
-        navigationController?.navigationBar.prefersLargeTitles = true
+        // Disable large titles for this view controller
+        navigationItem.largeTitleDisplayMode = .never
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func registerCells() {
         tableView.registerCell(fromClass: ChecklistRowTableViewCell.self)
     }
-
+    
 }
 
 // MARK: - ChecklistViewDelegate
@@ -114,7 +115,7 @@ extension ChecklistViewController: ChecklistViewDelegate {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate & DataSource
 extension ChecklistViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -130,7 +131,6 @@ extension ChecklistViewController {
             
         case .checklistRow(model: let model):
             let cell = tableView.dequeueReusableCell(fromClass: ChecklistRowTableViewCell.self, for: indexPath)
-            
             cell?.setup(model: model)
             return cell ?? UITableViewCell()
         }
