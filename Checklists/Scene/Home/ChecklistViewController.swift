@@ -13,15 +13,16 @@ protocol ChecklistViewDelegate: AnyObject {
     func update(item: ChecklistRowView.Model, at position: Int)
 }
 
+// MARK: - Item for TableViewController
+private enum Item: Codable {
+    
+    case checklistRow(model: ChecklistRowView.Model)
+    
+}
+
 // MARK: - Class
 
 final class ChecklistViewController: BaseUITableViewController {
-    
-    enum Item: Codable {
-        
-        case checklistRow(model: ChecklistRowView.Model)
-        
-    }
 
     typealias ViewModel = ChecklistVM & ChecklistTransition
     
@@ -64,7 +65,7 @@ extension ChecklistViewController {
         setupView()
         registerCells()
         viewModel.setup(viewDelegate: self)
-        loadChecklistItems()
+        items = viewModel.loadChecklistItems().items
     }
 
 }
@@ -95,7 +96,7 @@ extension ChecklistViewController: ChecklistViewDelegate {
         let path = [IndexPath(row: position, section: 0)]
         // Update table view
         tableView.reloadRows(at: path, with: .automatic)
-        saveChecklistItems()
+        viewModel.save(items: items.checklistItems)
     }
     
     func add(newItem: ChecklistRowView.Model) {
@@ -109,7 +110,7 @@ extension ChecklistViewController: ChecklistViewDelegate {
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
-        saveChecklistItems()
+        viewModel.save(items: items.checklistItems)
     }
 }
 
@@ -144,7 +145,7 @@ extension ChecklistViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         // Reload the table view at selected path
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        saveChecklistItems()
+        viewModel.save(items: items.checklistItems)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -155,7 +156,7 @@ extension ChecklistViewController {
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
         
-        saveChecklistItems()
+        viewModel.save(items: items.checklistItems)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -165,51 +166,21 @@ extension ChecklistViewController {
     }
 }
 
-// Storage
-// TODO: Extract this into a storage manager
-extension ChecklistViewController {
-    func documentsDirectory() -> URL {
-      let paths = FileManager.default.urls(for: .documentDirectory,
-                                            in: .userDomainMask)
-      return paths[0]
+// MARK: - Array extension for [ChecklistItem] -> [Item]
+extension Array where Element == ChecklistItem {
+    fileprivate var items: [Item] {
+        return self.map { Item.checklistRow(model: ChecklistRowView.Model(title: $0.title, isChecked: $0.isChecked))}
     }
+}
 
-    func dataFilePath() -> URL {
-      return documentsDirectory().appendingPathComponent(
-        C.fileName)
-    }
-    
-    func saveChecklistItems() {
-      // 1
-      let encoder = PropertyListEncoder()
-      // 2
-      do {
-        // 3
-        let data = try encoder.encode(items)
-        // 4
-        try data.write(to: dataFilePath(),
-                  options: Data.WritingOptions.atomic)
-        // 5
-      } catch {
-        // 6
-        print("Error encoding item array: \(error.localizedDescription)")
-      }
-    }
-    
-    func loadChecklistItems() {
-      // 1
-      let path = dataFilePath()
-      // 2
-      if let data = try? Data(contentsOf: path) {
-        // 3
-        let decoder = PropertyListDecoder()
-        do {
-          // 4
-          items = try decoder.decode([Item].self,
-                                     from: data)
-        } catch {
-          print("Error decoding item array: \(error.localizedDescription)")
+// MARK: - Array extension for [Item] -> [ChecklistItem]
+extension Array where Element == Item {
+    fileprivate var checklistItems: [ChecklistItem] {
+        return self.compactMap {
+            switch $0 {
+            case .checklistRow(model: let model):
+                return ChecklistItem(title: model.title, isChecked: model.isChecked)
+            }
         }
-      }
     }
 }

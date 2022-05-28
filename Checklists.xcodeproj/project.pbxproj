@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3B42841FA44000ED101 /* DependencyManager.swift */; };
+		7EE3C3BD2841FB62000ED101 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3BB2841FB62000ED101 /* StorageManager.swift */; };
+		7EE3C3BE2841FB62000ED101 /* StorageManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3BC2841FB62000ED101 /* StorageManagerImpl.swift */; };
+		7EE3C3C1284200DC000ED101 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3C0284200DC000ED101 /* ChecklistItem.swift */; };
 		7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */; };
 		7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */; };
 		7EF05AE2283FDFD900F4873B /* AddChecklistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */; };
@@ -69,6 +73,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EE3C3B42841FA44000ED101 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
+		7EE3C3BB2841FB62000ED101 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		7EE3C3BC2841FB62000ED101 /* StorageManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerImpl.swift; sourceTree = "<group>"; };
+		7EE3C3C0284200DC000ED101 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistViewModel.swift; sourceTree = "<group>"; };
 		7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistViewController.swift; sourceTree = "<group>"; };
 		7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddChecklistViewController.storyboard; sourceTree = "<group>"; };
@@ -145,6 +153,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EE3C3B32841FA21000ED101 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7EE3C3B62841FA8A000ED101 /* StorageManager */,
+				7EE3C3B42841FA44000ED101 /* DependencyManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7EE3C3B62841FA8A000ED101 /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				7EE3C3BB2841FB62000ED101 /* StorageManager.swift */,
+				7EE3C3BC2841FB62000ED101 /* StorageManagerImpl.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
+		7EE3C3BF2841FC01000ED101 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EE3C3C0284200DC000ED101 /* ChecklistItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7EF05ADC283FDFA900F4873B /* AddChecklist */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +212,8 @@
 		DA9925D3283E0DD5004C0FF6 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
+				7EE3C3BF2841FC01000ED101 /* Model */,
+				7EE3C3B32841FA21000ED101 /* Manager */,
 				DA992620283E1EB7004C0FF6 /* Coordinator */,
 				DA992604283E10C6004C0FF6 /* Application */,
 				DA992615283E171A004C0FF6 /* Scene */,
@@ -574,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
+				7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */,
 				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
 				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,
 				DAC137AF283E9B0A00DDDD47 /* SeparatorRowView.swift in Sources */,
@@ -595,10 +632,13 @@
 				DAC137AE283E9B0A00DDDD47 /* SeparatorRowTableViewCell.swift in Sources */,
 				DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */,
 				DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */,
+				7EE3C3C1284200DC000ED101 /* ChecklistItem.swift in Sources */,
 				DAC137B6283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift in Sources */,
 				DA992639283E2B03004C0FF6 /* Localizable.swift in Sources */,
 				DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */,
 				DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */,
+				7EE3C3BE2841FB62000ED101 /* StorageManagerImpl.swift in Sources */,
+				7EE3C3BD2841FB62000ED101 /* StorageManager.swift in Sources */,
 				7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */,
 				DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */,
 			);
@@ -781,7 +821,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6278X7SZT4;
+				DEVELOPMENT_TEAM = SCDM9CKQMB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Checklists/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -794,7 +834,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.checklists.Checklists;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -809,7 +849,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6278X7SZT4;
+				DEVELOPMENT_TEAM = SCDM9CKQMB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Checklists/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -822,7 +862,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.checklists.Checklists;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -995,7 +1035,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6278X7SZT4;
+				DEVELOPMENT_TEAM = SCDM9CKQMB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Checklists/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1008,7 +1048,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.checklists.Checklists;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.jhnplotim.ios.Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
