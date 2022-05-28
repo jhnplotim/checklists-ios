@@ -179,14 +179,28 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7EF05ADC283FDFA900F4873B /* AddChecklist */ = {
+		7EE3C3C2284221D8000ED101 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		7EE3C3C32842221C000ED101 /* ListDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ListDetail;
+			sourceTree = "<group>";
+		};
+		7EF05ADC283FDFA900F4873B /* ChecklistDetail */ = {
 			isa = PBXGroup;
 			children = (
 				7EF05ADD283FDFD900F4873B /* AddChecklistViewModel.swift */,
 				7EF05ADE283FDFD900F4873B /* AddChecklistViewController.swift */,
 				7EF05ADF283FDFD900F4873B /* AddChecklistViewController.storyboard */,
 			);
-			path = AddChecklist;
+			path = ChecklistDetail;
 			sourceTree = "<group>";
 		};
 		DA9925C8283E0DD5004C0FF6 = {
@@ -277,8 +291,10 @@
 		DA992615283E171A004C0FF6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				7EF05ADC283FDFA900F4873B /* AddChecklist */,
-				DA992643283E52CD004C0FF6 /* Home */,
+				7EE3C3C32842221C000ED101 /* ListDetail */,
+				7EE3C3C2284221D8000ED101 /* Lists */,
+				7EF05ADC283FDFA900F4873B /* ChecklistDetail */,
+				DA992643283E52CD004C0FF6 /* Checklists */,
 				DA99263E283E51F0004C0FF6 /* Base */,
 			);
 			path = Scene;
@@ -366,14 +382,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		DA992643283E52CD004C0FF6 /* Home */ = {
+		DA992643283E52CD004C0FF6 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
 				DA992644283E52EF004C0FF6 /* ChecklistViewModel.swift */,
 				DA992645283E52EF004C0FF6 /* ChecklistViewController.swift */,
 				DA992646283E52EF004C0FF6 /* ChecklistViewController.storyboard */,
 			);
-			path = Home;
+			path = Checklists;
 			sourceTree = "<group>";
 		};
 		DAC1379B283E973100DDDD47 /* View */ = {
