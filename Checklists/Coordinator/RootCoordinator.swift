@@ -35,7 +35,7 @@ final class RootCoordinator: Coordinator {
     }
     
     func start() {
-        let appCoordinator = AppCoordinator(navigationController: UINavigationController(), parentCoordinator: self)
+        let appCoordinator = AppCoordinator(navigationController: UINavigationController(), parentCoordinator: self, di: di)
         appCoordinator.start()
         childCoordinators.append(appCoordinator)
         
