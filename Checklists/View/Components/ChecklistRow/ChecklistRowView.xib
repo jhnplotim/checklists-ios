@@ -20,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Sve-XQ-gdM">
-                    <rect key="frame" x="16" y="0.0" width="382" height="300"/>
+                    <rect key="frame" x="16" y="8" width="382" height="284"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA9-QG-bXV">
-                            <rect key="frame" x="0.0" y="0.0" width="25" height="300"/>
+                            <rect key="frame" x="0.0" y="0.0" width="25" height="284"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="OTD-HV-Q81"/>
                             </constraints>
@@ -32,7 +32,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR5-qx-M9c" customClass="Label" customModule="Checklists" customModuleProvider="target">
-                            <rect key="frame" x="25" y="0.0" width="357" height="300"/>
+                            <rect key="frame" x="25" y="0.0" width="357" height="284"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" name="DarkGray"/>
                             <nil key="highlightedColor"/>
@@ -51,8 +51,8 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Sve-XQ-gdM" secondAttribute="bottom" id="CHF-ss-ief"/>
-                <constraint firstItem="Sve-XQ-gdM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PIq-2B-V6x"/>
+                <constraint firstAttribute="bottom" secondItem="Sve-XQ-gdM" secondAttribute="bottom" constant="8" id="CHF-ss-ief"/>
+                <constraint firstItem="Sve-XQ-gdM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="PIq-2B-V6x"/>
                 <constraint firstAttribute="trailing" secondItem="Sve-XQ-gdM" secondAttribute="trailing" constant="16" id="hfb-L0-PTG"/>
                 <constraint firstItem="Sve-XQ-gdM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kmy-bV-ks7"/>
             </constraints>

@@ -12,6 +12,8 @@ import Foundation
 protocol StorageManager: AnyObject {
     func getCheckListItems() -> [ChecklistItem]
     func save(checkListItems items: [ChecklistItem])
+    func getCheckLists() -> [ListItem]
+    func save(listItems items: [ListItem])
 }
 
 // MARK: Manager Implementation

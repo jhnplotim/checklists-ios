@@ -9,7 +9,7 @@ import Foundation
 
 protocol ChecklistVM: AnyObject {
     func setup(viewDelegate: ChecklistViewDelegate)
-    func loadChecklistItems() -> [ChecklistItem]
+    func loadChecklistItems()
     func save(items: [ChecklistItem])
 }
 
@@ -29,12 +29,14 @@ final class ChecklistViewModel {
 
     // Dependencies
     private var di: DI
+    private var checkListView: ListItem
 
     // MARK: - Constructor
 
-    init(di: DI, route: AppRoute? = nil) {
+    init(di: DI, route: AppRoute? = nil, listToView: ListItem) {
         self.di = di
         self.route = route
+        self.checkListView = listToView
     }
 
 }
@@ -44,14 +46,16 @@ final class ChecklistViewModel {
 extension ChecklistViewModel: ChecklistVM {
     func setup(viewDelegate: ChecklistViewDelegate) {
         self.viewDelegate = viewDelegate
+        self.viewDelegate?.loadCheckList(checkListView)
     }
     
     func save(items: [ChecklistItem]) {
         di.storageManager.save(checkListItems: items)
     }
     
-    func loadChecklistItems() -> [ChecklistItem] {
-        return di.storageManager.getCheckListItems()
+    func loadChecklistItems() {
+        let items = di.storageManager.getCheckListItems()
+        self.viewDelegate?.loadChecklistItems(items)
     }
 
 }

@@ -37,3 +37,10 @@ final class ListRowView: ReusableNibView {
     }
 
 }
+
+// MARK: - Extension ListRowView.Model -> ListItem
+extension ListRowView.Model {
+    var listItem: ListItem {
+        ListItem(title: self.title)
+    }
+}

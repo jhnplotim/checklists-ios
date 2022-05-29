@@ -36,11 +36,17 @@
 
 "feature.alllists.title" = "Checklists";
 
+"feature.listdetail.add.title" = "Add List";
+
+"feature.listdetail.edit.title" = "Edit List";
+
+"feature.listdetail.textfield.placeholder" = "Name of the List";
+
 "feature.checklists.title" = "Checklists";
 
-"feature.checklists.add.title" = "Add Item";
+"feature.checklistitemdetail.add.title" = "Add Item";
 
-"feature.checklists.edit.title" = "Edit Item";
+"feature.checklistitemdetail.edit.title" = "Edit Item";
 
-"feature.checklists.add.placeholder" = "Name of the item";
+"feature.checklistitemdetail.textfield.placeholder" = "Name of the item";
 

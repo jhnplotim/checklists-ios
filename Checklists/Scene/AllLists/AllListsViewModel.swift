@@ -9,15 +9,19 @@ import Foundation
 
 protocol AllListsVM: AnyObject {
     func setup(viewDelegate: AllListsViewDelegate)
+    func loadChecklists()
+    func save(items: [ListItem])
 }
 
 protocol AllListsTransition: AnyObject {
-    func openCheckListItems()
+    func openCheckListItems(for checklist: ListItem)
+    func goToAddCheckList()
+    func goToEditCheckList(item: ListRowView.Model, at position: Int)
 }
 
 final class AllListsViewModel {
 
-    typealias DI = AnyObject
+    typealias DI = WithStorageManager
 
     private weak var route: AppRoute?
     private weak var viewDelegate: AllListsViewDelegate?
@@ -40,19 +44,38 @@ extension AllListsViewModel: AllListsVM {
     func setup(viewDelegate: AllListsViewDelegate) {
         self.viewDelegate = viewDelegate
     }
+    
+    func save(items: [ListItem]) {
+        di.storageManager.save(listItems: items)
+    }
+    
+    func loadChecklists() {
+        let results = di.storageManager.getCheckLists()
+        self.viewDelegate?.loadChecklists(results)
+    }
 
 }
 
 // MARK: - AllListsTransition
 
 extension AllListsViewModel: AllListsTransition {
-    func openCheckListItems() {
-        route?.goToCheckListItems()
+    func openCheckListItems(for checklist: ListItem) {
+        route?.goToCheckListItems(for: checklist)
+    }
+    
+    func goToAddCheckList() {
+        route?.goToAddOrEditCheckList(item: nil, completion: listAdded)
+    }
+    
+    func goToEditCheckList(item: ListRowView.Model, at position: Int) {
+        route?.goToAddOrEditCheckList(item: (position, item), completion: listAdded)
     }
 }
 
 // MARK: - Private
 
 extension AllListsViewModel {
-
+    func listAdded(model: ListRowView.Model, at position: Int?) {
+        // TODO: send back to UI
+    }
 }

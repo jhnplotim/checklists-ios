@@ -11,6 +11,8 @@ import Combine
 protocol ChecklistViewDelegate: AnyObject {
     func add(newItem: ChecklistRowView.Model)
     func update(item: ChecklistRowView.Model, at position: Int)
+    func loadChecklistItems(_ checklistItems: [ChecklistItem])
+    func loadCheckList(_ checkList: ListItem)
 }
 
 // MARK: - Item for TableViewController
@@ -38,8 +40,6 @@ final class ChecklistViewController: BaseUITableViewController {
     // MARK: - Constant
 
     private enum C {
-        static let navigationTitle = "(Name of the Checklist)"
-        static let fileName = "Checklists.plist"
     }
 
     // MARK: - Variable
@@ -65,7 +65,8 @@ extension ChecklistViewController {
         setupView()
         registerCells()
         viewModel.setup(viewDelegate: self)
-        items = viewModel.loadChecklistItems().items
+        // Tell VM to load items
+        viewModel.loadChecklistItems()
     }
 
 }
@@ -75,7 +76,6 @@ extension ChecklistViewController {
 extension ChecklistViewController {
 
     private func setupView() {
-        navigationItem.title = C.navigationTitle
         // Disable large titles for this view controller
         navigationItem.largeTitleDisplayMode = .never
         tableView.tableFooterView = UIView(frame: .zero)
@@ -103,15 +103,23 @@ extension ChecklistViewController: ChecklistViewDelegate {
     func add(newItem: ChecklistRowView.Model) {
         // Position to insert item
         let newRowIndex = items.count
-
         // Append item to list
         items.append(Item.checklistRow(model: newItem))
-
         // Updated the table view
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         viewModel.save(items: items.checklistItems)
+    }
+    
+    func loadChecklistItems(_ checklistItems: [ChecklistItem]) {
+        self.items = checklistItems.items
+        tableView.reloadData()
+    }
+    
+    func loadCheckList(_ checkList: ListItem) {
+        // Load title
+        navigationItem.title = checkList.title
     }
 }
 

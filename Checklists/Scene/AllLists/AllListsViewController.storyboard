@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jxL-9d-dre">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,7 +11,7 @@
         <!--Title-->
         <scene sceneID="vYP-eH-npx">
             <objects>
-                <tableViewController storyboardIdentifier="AllListsViewController" id="jxL-9d-dre" customClass="AllListsViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jxL-9d-dre" customClass="AllListsViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="7pX-JW-HMr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="Vnw-Yx-Urh">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="knV-Zg-rk5"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="knV-Zg-rk5">
+                            <connections>
+                                <action selector="addList:" destination="jxL-9d-dre" id="nvB-wF-Ac0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pz2-J0-fss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,12 +9,12 @@ import UIKit
 import Combine
  
 protocol ListDetailViewDelegate: AnyObject {
-    
+    func preload(editItem: ListRowView.Model)
 }
 
 // MARK: - Class
 
-final class ListDetailViewController: UIViewController {
+final class ListDetailViewController: BaseUITableViewController {
 
     typealias ViewModel = ListDetailVM & ListDetailTransition
     
@@ -26,11 +26,14 @@ final class ListDetailViewController: UIViewController {
     }
 
     // MARK: - Outlet
+    @IBOutlet weak var textField: UITextField!
     
     // MARK: - Constant
 
     private enum C {
-        static let navigationTitle = "Navigation Title"
+        static let addListTitle = L.Feature.Listdetail.Add.title
+        static let editListTitle = L.Feature.Listdetail.Edit.title
+        static let textFieldPlaceHolder = L.Feature.Listdetail.Textfield.placeholder
     }
 
     // MARK: - Variable
@@ -50,6 +53,12 @@ extension ListDetailViewController {
         setupView()
         viewModel.setup(viewDelegate: self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Make text field first responder on load page
+        textField.becomeFirstResponder()
+    }
 
 }
 
@@ -58,7 +67,11 @@ extension ListDetailViewController {
 extension ListDetailViewController {
 
     private func setupView() {
-        navigationItem.title = C.navigationTitle
+        navigationItem.title = C.addListTitle
+        // Disable large titles for this view controller
+        navigationItem.largeTitleDisplayMode = .never
+        // Set placeholder of text field
+        textField.placeholder = C.textFieldPlaceHolder
     }
 
 }
@@ -66,5 +79,16 @@ extension ListDetailViewController {
 // MARK: - ListDetailViewDelegate
 
 extension ListDetailViewController: ListDetailViewDelegate {
-    
+    func preload(editItem: ListRowView.Model) {
+        textField.text = editItem.title
+        navigationItem.title = C.editListTitle
+    }
+}
+
+// MARK: - Table View Delegates
+extension ListDetailViewController {
+    // Disable row selection
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
 }

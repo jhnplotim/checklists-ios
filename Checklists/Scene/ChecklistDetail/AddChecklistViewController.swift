@@ -32,8 +32,9 @@ final class AddChecklistViewController: BaseUITableViewController, UITextFieldDe
     // MARK: - Constant
 
     private enum C {
-        static let addItemTitle = L.Feature.Checklists.Add.title
-        static let editItemTitle = L.Feature.Checklists.Edit.title
+        static let addItemTitle = L.Feature.Checklistitemdetail.Add.title
+        static let editItemTitle = L.Feature.Checklistitemdetail.Edit.title
+        static let textFieldPlaceHolder = L.Feature.Checklistitemdetail.Textfield.placeholder
     }
 
     // MARK: - Variable
@@ -73,6 +74,7 @@ extension AddChecklistViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Make text field first responder on load
         textField.becomeFirstResponder()
     }
 
@@ -86,7 +88,7 @@ extension AddChecklistViewController {
         navigationItem.title = C.addItemTitle
         // Disable large titles for this view controller
         navigationItem.largeTitleDisplayMode = .never
-        textField.placeholder = L.Feature.Checklists.Add.placeholder
+        textField.placeholder = C.textFieldPlaceHolder
         textField.delegate = self
     }
 
