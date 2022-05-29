@@ -9,7 +9,7 @@ import Foundation
 
 class DependencyContainer: WithStorageManager {
     // Singleton
-    lazy var storageManager: StorageManager = StorageManagerImpl(di: self)
+    lazy var storageManager: StorageManager = StorageManagerImpl.getSharedInstance(di: self)
 }
 
 let di = DependencyContainer()

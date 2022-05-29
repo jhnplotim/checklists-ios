@@ -10,7 +10,7 @@ import Foundation
 protocol AllListsVM: AnyObject {
     func setup(viewDelegate: AllListsViewDelegate)
     func loadChecklists()
-    func save(items: [ListItem])
+    func updateStorageMgr(items: [ListItem])
 }
 
 protocol AllListsTransition: AnyObject {
@@ -45,13 +45,12 @@ extension AllListsViewModel: AllListsVM {
         self.viewDelegate = viewDelegate
     }
     
-    func save(items: [ListItem]) {
-        di.storageManager.save(listItems: items)
+    func loadChecklists() {
+        self.viewDelegate?.loadChecklists(di.storageManager.load())
     }
     
-    func loadChecklists() {
-        let results = di.storageManager.getCheckLists()
-        self.viewDelegate?.loadChecklists(results)
+    func updateStorageMgr(items: [ListItem]) {
+        di.storageManager.update(items: items)
     }
 
 }

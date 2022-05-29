@@ -41,7 +41,12 @@ final class AllListsViewController: BaseUITableViewController {
     }
 
     // MARK: - Variable
-    private var items = [Item]()
+    private var checkLists: [ListItem] = [] {
+        didSet {
+            items = checkLists.items
+        }
+    }
+    private var items: [Item] = []
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
@@ -92,28 +97,30 @@ extension AllListsViewController {
 extension AllListsViewController: AllListsViewDelegate {
     func add(newItem: ListRowView.Model) {
         // Position to insert item
-        let newRowIndex = items.count
+        let newRowIndex = checkLists.count
         // Append item to list
-        items.append(Item.listRow(model: newItem))
+        // TODO: Check if didSet updates the items
+        checkLists.append(newItem.listItem)
         // Updated the table view
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
-        viewModel.save(items: items.listItems)
+        viewModel.updateStorageMgr(items: checkLists)
     }
     
     func update(item: ListRowView.Model, at position: Int) {
         // Update item in list
-        items[position] = Item.listRow(model: item)
+        // TODO: Check if didSet updates the items
+        checkLists[position] = item.listItem
         // path of index to update
         let path = [IndexPath(row: position, section: 0)]
         // Update table view
         tableView.reloadRows(at: path, with: .automatic)
-        viewModel.save(items: items.listItems)
+        viewModel.updateStorageMgr(items: checkLists)
     }
     
     func loadChecklists(_ listItems: [ListItem]) {
-        items = listItems.items
+        checkLists = listItems
         tableView.reloadData()
     }
 }
@@ -142,10 +149,9 @@ extension AllListsViewController {
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if case let .listRow(model) = items[indexPath.row] {
-            // Update the item list at that row index by toggling the isChecked property and later reload the table view
-            viewModel.openCheckListItems(for: model.listItem)
-        }
+        let checkList = checkLists[indexPath.row]
+        
+        viewModel.openCheckListItems(for: checkList)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -156,13 +162,13 @@ extension AllListsViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 1
-        items.remove(at: indexPath.row)
+        checkLists.remove(at: indexPath.row)
         
         // 2
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
         
-        viewModel.save(items: items.listItems)
+        viewModel.updateStorageMgr(items: checkLists)
     }
     
 }

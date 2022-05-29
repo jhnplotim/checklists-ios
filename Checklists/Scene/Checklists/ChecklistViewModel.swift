@@ -9,13 +9,10 @@ import Foundation
 
 protocol ChecklistVM: AnyObject {
     func setup(viewDelegate: ChecklistViewDelegate)
-    func loadChecklistItems()
-    func save(items: [ChecklistItem])
 }
 
 protocol ChecklistTransition: AnyObject {
     func goToAddItem()
-    
     func goToEdit(item: ChecklistRowView.Model, at position: Int)
 
 }
@@ -48,16 +45,6 @@ extension ChecklistViewModel: ChecklistVM {
         self.viewDelegate = viewDelegate
         self.viewDelegate?.loadCheckList(checkListView)
     }
-    
-    func save(items: [ChecklistItem]) {
-        di.storageManager.save(checkListItems: items)
-    }
-    
-    func loadChecklistItems() {
-        let items = di.storageManager.getCheckListItems()
-        self.viewDelegate?.loadChecklistItems(items)
-    }
-
 }
 
 // MARK: - ChecklistTransition

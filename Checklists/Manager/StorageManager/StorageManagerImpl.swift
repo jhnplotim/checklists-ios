@@ -10,6 +10,20 @@ import UIKit
 // MARK: - Manager Implementation
 
 final class StorageManagerImpl: StorageManager {
+    
+    private static var sharedInstance: StorageManagerImpl?
+    
+    // MARK: - Singleton
+    // swiftlint:disable force_cast
+    /// Get shared instance of storage manager
+    static func getSharedInstance(di: DependencyContainer) -> Self {
+        if let sharedInstance = sharedInstance {
+            return sharedInstance as! Self
+        } else {
+            sharedInstance = StorageManagerImpl(di: di)
+            return sharedInstance as! Self
+        }
+    }
 
     // MARK: - Typealias
 
@@ -18,19 +32,19 @@ final class StorageManagerImpl: StorageManager {
     // MARK: - Constant
     
     private enum C {
-    }
-    
-    private enum FileType: String {
-        case checklists = "Checklists.plist"
-        case checklistItems = "ChecklistItems.plist"
+        static let fileName = "Checklists.plist"
     }
 
     private let di: DI
+    
+    private var items: [ListItem] = []
 
     // MARK: - Initializer
 
-    init(di: DependencyContainer) {
+    private init(di: DependencyContainer) {
         self.di = di
+        // load checklists into memory
+        self.items = loadChecklistsInToMemory()
     }
 
 }
@@ -38,12 +52,42 @@ final class StorageManagerImpl: StorageManager {
 // MARK: - Public
 
 extension StorageManagerImpl {
-    // TODO: Merge the get & load methods into one and use reflection to avoid code duplication
-    func getCheckLists() -> [ListItem] {
+    func load() -> [ListItem] {
+        // Return reference to preloaded list
+        return items
+    }
+    
+    func save() {
+        // 1
+        let encoder = PropertyListEncoder()
+        // 2
+        do {
+          // 3
+          let data = try encoder.encode(items)
+          // 4
+            try data.write(to: dataFilePath(forFileWithName: C.fileName),
+                    options: Data.WritingOptions.atomic)
+          // 5
+        } catch {
+          // 6
+          print("Error encoding item array: \(error.localizedDescription)")
+        }
+    }
+    
+    func update(items: [ListItem]) {
+        self.items = items
+    }
+
+}
+
+// MARK: - Private
+
+extension StorageManagerImpl {
+    private func loadChecklistsInToMemory() -> [ListItem] {
         // 1a
         var items = [ListItem]()
         // 1b
-        let path = dataFilePath(for: .checklists)
+        let path = dataFilePath(forFileWithName: C.fileName)
         // 2
         if let data = try? Data(contentsOf: path) {
           // 3
@@ -60,75 +104,15 @@ extension StorageManagerImpl {
         return items
     }
     
-    func save(listItems items: [ListItem]) {
-        // 1
-        let encoder = PropertyListEncoder()
-        // 2
-        do {
-          // 3
-          let data = try encoder.encode(items)
-          // 4
-            try data.write(to: dataFilePath(for: .checklists),
-                    options: Data.WritingOptions.atomic)
-          // 5
-        } catch {
-          // 6
-          print("Error encoding item array: \(error.localizedDescription)")
-        }
-    }
-    
-    func getCheckListItems() -> [ChecklistItem] {
-        // 1a
-        var items = [ChecklistItem]()
-        // 1b
-        let path = dataFilePath(for: .checklistItems)
-        // 2
-        if let data = try? Data(contentsOf: path) {
-          // 3
-          let decoder = PropertyListDecoder()
-          do {
-            // 4
-            items = try decoder.decode([ChecklistItem].self,
-                                       from: data)
-          } catch {
-            print("Error decoding item array: \(error.localizedDescription)")
-          }
-        }
-        
-        return items
-    }
-    
-    func save(checkListItems items: [ChecklistItem]) {
-        // 1
-        let encoder = PropertyListEncoder()
-        // 2
-        do {
-          // 3
-          let data = try encoder.encode(items)
-          // 4
-            try data.write(to: dataFilePath(for: .checklistItems),
-                    options: Data.WritingOptions.atomic)
-          // 5
-        } catch {
-          // 6
-          print("Error encoding item array: \(error.localizedDescription)")
-        }
-    }
-
-}
-
-// MARK: - Private
-
-extension StorageManagerImpl {
     private func documentsDirectory() -> URL {
       let paths = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)
       return paths[0]
     }
 
-    private func dataFilePath(for type: FileType) -> URL {
+    private func dataFilePath(forFileWithName fileName: String) -> URL {
       return documentsDirectory().appendingPathComponent(
-        type.rawValue)
+        fileName)
     }
 
 }
