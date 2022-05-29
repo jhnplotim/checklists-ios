@@ -17,4 +17,15 @@ class ChecklistItem: NSObject, Codable {
         super.init()
         // Any other code can go here
     }
+    
+    func toggle() {
+        isChecked = !isChecked
+    }
+}
+
+// MARK: - Extension ChecklistItem -> ChecklistRowView.Model
+extension ChecklistItem {
+    var modelCheckListListItem: ChecklistRowView.Model {
+        ChecklistRowView.Model(title: self.title, isChecked: self.isChecked)
+    }
 }

@@ -58,6 +58,14 @@ extension Coordinator {
         navigationController.present(controller, animated: animated, completion: completion)
     }
     
+    func show(_ controller: UIViewController, sender: Any? = nil) {
+        navigationController.show(controller, sender: sender)
+    }
+    
+    func showDetailViewController(_ controller: UIViewController, sender: Any? = nil) {
+        navigationController.showDetailViewController(controller, sender: sender)
+    }
+    
     func pop(to controller: UIViewController, animated: Bool = true) {
         navigationController.popToViewController(controller, animated: animated)
     }

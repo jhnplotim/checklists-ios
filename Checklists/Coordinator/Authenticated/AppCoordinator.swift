@@ -11,11 +11,12 @@ import Combine
 // MARK: - Router Interface
 
 protocol AppRoute: AnyObject {
-    func goToAddCheckListItem(completion: AddOrEditCheckList?)
-    
-    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckList?)
+    func goToCheckListItems(for checklist: ListItem)
+    func goToAddCheckListItem(completion: AddOrEditCheckListItem?)
+    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?)
     /// Pop to prev view controller (if current is pushed onto stack)
     func popToPrevious()
+    func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?)
 }
 
 final class AppCoordinator: Coordinator {
@@ -33,7 +34,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        setRoot(ChecklistViewController.create(viewModel: ChecklistViewModel(route: self, di: di)))
+        setRoot(AllListsViewController.create(viewModel: AllListsViewModel(di: di, route: self)))
     }
     
 }
@@ -41,16 +42,23 @@ final class AppCoordinator: Coordinator {
 // MARK: - Router implementation
 
 extension AppCoordinator: AppRoute {
-    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckList?) {
+    func goToCheckListItems(for checklist: ListItem) {
+        push(ChecklistViewController.create(viewModel: ChecklistViewModel(di: di, route: self, listToView: checklist )))
+    }
+    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?) {
         push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self, itemToEdit: (position, item))))
     }
     
-    func goToAddCheckListItem(completion: AddOrEditCheckList?) {
+    func goToAddCheckListItem(completion: AddOrEditCheckListItem?) {
         push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self)))
     }
     
     func popToPrevious() {
         pop()
+    }
+    
+    func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?) {
+        push(ListDetailViewController.create(viewModel: ListDetailViewModel(route: self, completion: completion, itemToEdit: item)))
     }
 }
 

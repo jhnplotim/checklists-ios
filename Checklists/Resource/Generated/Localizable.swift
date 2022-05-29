@@ -46,18 +46,40 @@ internal enum L {
   }
 
   internal enum Feature {
-    internal enum Checklists {
+    internal enum Alllists {
       /// Checklists
-      internal static let title = L.tr("Localizable", "feature.checklists.title")
+      internal static let title = L.tr("Localizable", "feature.alllists.title")
+    }
+    internal enum Checklistitemdetail {
       internal enum Add {
-        /// Name of the item
-        internal static let placeholder = L.tr("Localizable", "feature.checklists.add.placeholder")
         /// Add Item
-        internal static let title = L.tr("Localizable", "feature.checklists.add.title")
+        internal static let title = L.tr("Localizable", "feature.checklistitemdetail.add.title")
       }
       internal enum Edit {
         /// Edit Item
-        internal static let title = L.tr("Localizable", "feature.checklists.edit.title")
+        internal static let title = L.tr("Localizable", "feature.checklistitemdetail.edit.title")
+      }
+      internal enum Textfield {
+        /// Name of the item
+        internal static let placeholder = L.tr("Localizable", "feature.checklistitemdetail.textfield.placeholder")
+      }
+    }
+    internal enum Checklists {
+      /// Checklists
+      internal static let title = L.tr("Localizable", "feature.checklists.title")
+    }
+    internal enum Listdetail {
+      internal enum Add {
+        /// Add List
+        internal static let title = L.tr("Localizable", "feature.listdetail.add.title")
+      }
+      internal enum Edit {
+        /// Edit List
+        internal static let title = L.tr("Localizable", "feature.listdetail.edit.title")
+      }
+      internal enum Textfield {
+        /// Name of the List
+        internal static let placeholder = L.tr("Localizable", "feature.listdetail.textfield.placeholder")
       }
     }
   }

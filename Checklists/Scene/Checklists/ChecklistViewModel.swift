@@ -9,13 +9,10 @@ import Foundation
 
 protocol ChecklistVM: AnyObject {
     func setup(viewDelegate: ChecklistViewDelegate)
-    func loadChecklistItems() -> [ChecklistItem]
-    func save(items: [ChecklistItem])
 }
 
 protocol ChecklistTransition: AnyObject {
     func goToAddItem()
-    
     func goToEdit(item: ChecklistRowView.Model, at position: Int)
 
 }
@@ -29,12 +26,14 @@ final class ChecklistViewModel {
 
     // Dependencies
     private var di: DI
+    private var checkListView: ListItem
 
     // MARK: - Constructor
 
-    init(route: AppRoute? = nil, di: DI) {
+    init(di: DI, route: AppRoute? = nil, listToView: ListItem) {
         self.di = di
         self.route = route
+        self.checkListView = listToView
     }
 
 }
@@ -44,16 +43,8 @@ final class ChecklistViewModel {
 extension ChecklistViewModel: ChecklistVM {
     func setup(viewDelegate: ChecklistViewDelegate) {
         self.viewDelegate = viewDelegate
+        self.viewDelegate?.loadCheckList(checkListView)
     }
-    
-    func save(items: [ChecklistItem]) {
-        di.storageManager.save(checkListItems: items)
-    }
-    
-    func loadChecklistItems() -> [ChecklistItem] {
-        return di.storageManager.getCheckListItems()
-    }
-
 }
 
 // MARK: - ChecklistTransition

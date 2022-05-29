@@ -44,3 +44,10 @@ final class ChecklistRowView: ReusableNibView {
     }
 
 }
+
+// MARK: - Extension ChecklistRowView.Model -> ChecklistItem
+extension ChecklistRowView.Model {
+    var checklistItem: ChecklistItem {
+        ChecklistItem(title: self.title, isChecked: self.isChecked)
+    }
+}

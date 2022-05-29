@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias AddOrEditCheckList = ((ChecklistRowView.Model, Int?) -> Void)
+typealias AddOrEditCheckListItem = ((ChecklistRowView.Model, Int?) -> Void)
 
 protocol AddChecklistVM: AnyObject {
     func setup(viewDelegate: AddChecklistViewDelegate)
@@ -23,7 +23,7 @@ final class AddChecklistViewModel {
     // typealias DI = AnyObject
 
     private weak var route: AppRoute?
-    private var completion: AddOrEditCheckList?
+    private var completion: AddOrEditCheckListItem?
     private var itemToEdit: (Int, ChecklistRowView.Model)?
     private weak var viewDelegate: AddChecklistViewDelegate?
 
@@ -31,7 +31,7 @@ final class AddChecklistViewModel {
 
     // MARK: - Constructor
 
-    init(completion: AddOrEditCheckList? = nil, route: AppRoute? = nil, itemToEdit: (Int, ChecklistRowView.Model)? = nil) {
+    init(completion: AddOrEditCheckListItem? = nil, route: AppRoute? = nil, itemToEdit: (Int, ChecklistRowView.Model)? = nil) {
         self.completion = completion
         self.route = route
         self.itemToEdit = itemToEdit
@@ -53,7 +53,7 @@ extension AddChecklistViewModel: AddChecklistVM {
     func setup(viewDelegate: AddChecklistViewDelegate) {
         self.viewDelegate = viewDelegate
         if let itemToEdit = itemToEdit {
-            // Preload text field with item to edit
+            // Preload Item to Edit and put page in edit mode
             self.viewDelegate?.preload(editItem: itemToEdit.1)
         }
     }

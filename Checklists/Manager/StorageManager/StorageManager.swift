@@ -10,8 +10,9 @@ import Foundation
 // MARK: - Manager Type Definition
 
 protocol StorageManager: AnyObject {
-    func getCheckListItems() -> [ChecklistItem]
-    func save(checkListItems items: [ChecklistItem])
+    func save()
+    func load() -> [ListItem]
+    func update(items: [ListItem])
 }
 
 // MARK: Manager Implementation
