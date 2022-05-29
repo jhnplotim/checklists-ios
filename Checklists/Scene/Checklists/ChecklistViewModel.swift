@@ -9,6 +9,7 @@ import Foundation
 
 protocol ChecklistVM: AnyObject {
     func setup(viewDelegate: ChecklistViewDelegate)
+    func resetSelectedIndex()
 }
 
 protocol ChecklistTransition: AnyObject {
@@ -18,8 +19,12 @@ protocol ChecklistTransition: AnyObject {
 }
 
 final class ChecklistViewModel {
+    
+    private enum C {
+        static let homeIndex = -1
+    }
 
-    typealias DI = WithStorageManager
+    typealias DI = WithStorageManager & WithCacheManager
 
     private weak var route: AppRoute?
     private weak var viewDelegate: ChecklistViewDelegate?
@@ -44,6 +49,10 @@ extension ChecklistViewModel: ChecklistVM {
     func setup(viewDelegate: ChecklistViewDelegate) {
         self.viewDelegate = viewDelegate
         self.viewDelegate?.loadCheckList(checkListView)
+    }
+    
+    func resetSelectedIndex() {
+        di.cacheManager.lastSelectedListIndex = C.homeIndex
     }
 }
 

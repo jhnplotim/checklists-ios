@@ -14,14 +14,14 @@ protocol AllListsVM: AnyObject {
 }
 
 protocol AllListsTransition: AnyObject {
-    func openCheckListItems(for checklist: ListItem)
+    func openCheckListItems(for checklist: ListItem, at position: Int)
     func goToAddCheckList()
     func goToEditCheckList(item: ListRowView.Model, at position: Int)
 }
 
 final class AllListsViewModel {
 
-    typealias DI = WithStorageManager
+    typealias DI = WithStorageManager & WithCacheManager
 
     private weak var route: AppRoute?
     private weak var viewDelegate: AllListsViewDelegate?
@@ -58,8 +58,9 @@ extension AllListsViewModel: AllListsVM {
 // MARK: - AllListsTransition
 
 extension AllListsViewModel: AllListsTransition {
-    func openCheckListItems(for checklist: ListItem) {
-        route?.goToCheckListItems(for: checklist)
+    func openCheckListItems(for checklist: ListItem, at position: Int) {
+        
+        route?.goToCheckListItems(for: checklist, at: position)
     }
     
     func goToAddCheckList() {

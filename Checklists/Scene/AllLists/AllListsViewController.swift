@@ -70,7 +70,6 @@ extension AllListsViewController {
         viewModel.setup(viewDelegate: self)
         // Tell VM to load data
         viewModel.loadChecklists()
-        
     }
 
 }
@@ -151,7 +150,7 @@ extension AllListsViewController {
         
         let checkList = checkLists[indexPath.row]
         
-        viewModel.openCheckListItems(for: checkList)
+        viewModel.openCheckListItems(for: checkList, at: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {

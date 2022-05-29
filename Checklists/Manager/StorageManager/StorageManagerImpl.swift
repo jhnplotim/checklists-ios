@@ -77,6 +77,10 @@ extension StorageManagerImpl {
     func update(items: [ListItem]) {
         self.items = items
     }
+    
+    func getItem(at position: Int) -> ListItem {
+        return items[position]
+    }
 
 }
 

@@ -23,7 +23,7 @@ private enum Item: Codable {
 
 // MARK: - Class
 
-final class ChecklistViewController: BaseUITableViewController {
+final class ChecklistViewController: BaseUITableViewController, UINavigationControllerDelegate {
 
     typealias ViewModel = ChecklistVM & ChecklistTransition
     
@@ -43,7 +43,7 @@ final class ChecklistViewController: BaseUITableViewController {
 
     // MARK: - Variable
     
-    private var checkList: ListItem = ListItem(title: "") {
+    private var checkList = ListItem(title: "") {
         didSet {
             // TODO: Uncomment to investigate
             // items = checkList.checkListItems.items
@@ -79,6 +79,7 @@ extension ChecklistViewController {
         setupView()
         registerCells()
         viewModel.setup(viewDelegate: self)
+        navigationController?.delegate = self
     }
 
 }
@@ -209,5 +210,16 @@ extension ChecklistViewController {
     func updateCheckList(newItems: [ChecklistItem]) {
         checkList.checkListItems = newItems
         checkListItems = newItems
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+extension ChecklistViewController {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        // Was the back button tapped?
+          if viewController is AllListsViewController {
+              // Navigating back to AllListViewController
+              viewModel.resetSelectedIndex()
+          }
     }
 }

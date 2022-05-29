@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E3287F228438DEC0003AE9E /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F028438DEC0003AE9E /* CacheManager.swift */; };
+		7E3287F328438DEC0003AE9E /* CacheManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */; };
+		7E3287F528438EBC0003AE9E /* UserDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */; };
+		7E3287F828438F6C0003AE9E /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3287F728438F6C0003AE9E /* CombineExt */; };
+		7E3287FD2843927B0003AE9E /* KeychainValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287FC2843927B0003AE9E /* KeychainValue.swift */; };
+		7E328800284394560003AE9E /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3287FF284394560003AE9E /* KeychainSwift */; };
 		7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3B42841FA44000ED101 /* DependencyManager.swift */; };
 		7EE3C3BD2841FB62000ED101 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3BB2841FB62000ED101 /* StorageManager.swift */; };
 		7EE3C3BE2841FB62000ED101 /* StorageManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3BC2841FB62000ED101 /* StorageManagerImpl.swift */; };
@@ -84,6 +90,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E3287F028438DEC0003AE9E /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagerImpl.swift; sourceTree = "<group>"; };
+		7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValue.swift; sourceTree = "<group>"; };
+		7E3287FC2843927B0003AE9E /* KeychainValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainValue.swift; sourceTree = "<group>"; };
 		7EE3C3B42841FA44000ED101 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		7EE3C3BB2841FB62000ED101 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		7EE3C3BC2841FB62000ED101 /* StorageManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerImpl.swift; sourceTree = "<group>"; };
@@ -155,6 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E328800284394560003AE9E /* KeychainSwift in Frameworks */,
+				7E3287F828438F6C0003AE9E /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +190,10 @@
 		7E3287EF28438D0E0003AE9E /* CacheManager */ = {
 			isa = PBXGroup;
 			children = (
+				7E3287F028438DEC0003AE9E /* CacheManager.swift */,
+				7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */,
+				7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */,
+				7E3287FC2843927B0003AE9E /* KeychainValue.swift */,
 			);
 			path = CacheManager;
 			sourceTree = "<group>";
@@ -511,6 +527,10 @@
 			dependencies = (
 			);
 			name = Checklists;
+			packageProductDependencies = (
+				7E3287F728438F6C0003AE9E /* CombineExt */,
+				7E3287FF284394560003AE9E /* KeychainSwift */,
+			);
 			productName = Checklists;
 			productReference = DA9925D1283E0DD5004C0FF6 /* Checklists.app */;
 			productType = "com.apple.product-type.application";
@@ -583,6 +603,10 @@
 				Base,
 			);
 			mainGroup = DA9925C8283E0DD5004C0FF6;
+			packageReferences = (
+				7E3287F628438F6C0003AE9E /* XCRemoteSwiftPackageReference "CombineExt" */,
+				7E3287FE284394560003AE9E /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = DA9925D2283E0DD5004C0FF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -677,6 +701,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3287FD2843927B0003AE9E /* KeychainValue.swift in Sources */,
 				7EE3C3D128422539000ED101 /* ListItem.swift in Sources */,
 				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
 				7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */,
@@ -705,6 +730,7 @@
 				DAC137AE283E9B0A00DDDD47 /* SeparatorRowTableViewCell.swift in Sources */,
 				DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */,
 				DA9925D7283E0DD5004C0FF6 /* SceneDelegate.swift in Sources */,
+				7E3287F528438EBC0003AE9E /* UserDefaultValue.swift in Sources */,
 				7EE3C3C1284200DC000ED101 /* ChecklistItem.swift in Sources */,
 				DAC137B6283E9B3F00DDDD47 /* ChecklistRowTableViewCell.swift in Sources */,
 				7EE3C3C82842248B000ED101 /* AllListsViewController.swift in Sources */,
@@ -713,6 +739,8 @@
 				DAC137B8283E9B3F00DDDD47 /* ChecklistRowView.swift in Sources */,
 				DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */,
 				7EE3C3BE2841FB62000ED101 /* StorageManagerImpl.swift in Sources */,
+				7E3287F228438DEC0003AE9E /* CacheManager.swift in Sources */,
+				7E3287F328438DEC0003AE9E /* CacheManagerImpl.swift in Sources */,
 				7EE3C3BD2841FB62000ED101 /* StorageManager.swift in Sources */,
 				7EF05AE1283FDFD900F4873B /* AddChecklistViewController.swift in Sources */,
 				DAC137BB283E9C0700DDDD47 /* ReusableNibView.swift in Sources */,
@@ -1223,6 +1251,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7E3287F628438F6C0003AE9E /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		7E3287FE284394560003AE9E /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E3287F728438F6C0003AE9E /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E3287F628438F6C0003AE9E /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+		7E3287FF284394560003AE9E /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E3287FE284394560003AE9E /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA9925C9283E0DD5004C0FF6 /* Project object */;
 }
