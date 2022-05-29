@@ -175,9 +175,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E3287EF28438D0E0003AE9E /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CacheManager;
+			sourceTree = "<group>";
+		};
 		7EE3C3B32841FA21000ED101 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7E3287EF28438D0E0003AE9E /* CacheManager */,
 				7EE3C3B62841FA8A000ED101 /* StorageManager */,
 				7EE3C3B42841FA44000ED101 /* DependencyManager.swift */,
 			);
