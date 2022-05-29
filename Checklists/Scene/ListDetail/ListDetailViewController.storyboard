@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Detail View Controller-->
+        <!--Title-->
         <scene sceneID="J8n-uM-cWP">
             <objects>
                 <tableViewController id="gCf-HS-IMV" customClass="ListDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +48,22 @@
                             <outlet property="delegate" destination="gCf-HS-IMV" id="s4s-Sh-ce9"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="00F-Q8-s8p">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yDu-07-zuL">
+                            <connections>
+                                <action selector="cancel:" destination="gCf-HS-IMV" id="a8b-xL-SOI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="E6g-lU-RY7">
+                            <connections>
+                                <action selector="done:" destination="gCf-HS-IMV" id="JP4-LH-JRp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="doneBarBtn" destination="E6g-lU-RY7" id="gVc-3A-fGF"/>
                         <outlet property="textField" destination="12c-e7-mLB" id="ARX-o5-GNn"/>
                     </connections>
                 </tableViewController>

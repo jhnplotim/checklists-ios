@@ -461,8 +461,7 @@
 				DAC137B4283E9B3F00DDDD47 /* ChecklistRowView.swift */,
 				DAC137B1283E9B3F00DDDD47 /* ChecklistRowView.xib */,
 			);
-			name = ChecklistRow;
-			path = "New Group";
+			path = ChecklistRow;
 			sourceTree = "<group>";
 		};
 		DAC137A8283E9ACF00DDDD47 /* Separator */ = {

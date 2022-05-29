@@ -15,7 +15,7 @@ protocol ListDetailVM: AnyObject {
 }
 
 protocol ListDetailTransition: AnyObject {
-
+    func goBack()
 }
 
 final class ListDetailViewModel {
@@ -65,7 +65,9 @@ extension ListDetailViewModel: ListDetailVM {
 // MARK: - ListDetailTransition
 
 extension ListDetailViewModel: ListDetailTransition {
-    
+    func goBack() {
+        route?.popToPrevious()
+    }
 }
 
 // MARK: - Private

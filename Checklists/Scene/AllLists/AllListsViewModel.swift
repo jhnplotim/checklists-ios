@@ -76,6 +76,10 @@ extension AllListsViewModel: AllListsTransition {
 
 extension AllListsViewModel {
     func listAdded(model: ListRowView.Model, at position: Int?) {
-        // TODO: send back to UI
+        if let position = position {
+            self.viewDelegate?.update(item: model, at: position)
+        } else {
+            self.viewDelegate?.add(newItem: model)
+        }
     }
 }
