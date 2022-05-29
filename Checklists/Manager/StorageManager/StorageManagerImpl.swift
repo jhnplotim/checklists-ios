@@ -78,8 +78,12 @@ extension StorageManagerImpl {
         self.items = items
     }
     
-    func getItem(at position: Int) -> ListItem {
-        return items[position]
+    func getItem(at position: Int) -> ListItem? {
+        if items.isEmpty || items.count <= position {
+            return nil
+        } else {
+            return items[position]
+        }
     }
 
 }

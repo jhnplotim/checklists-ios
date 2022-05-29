@@ -46,8 +46,9 @@ final class AppCoordinator: Coordinator {
         // Go to checklist items page if possible
         let lastSelectedIndex = di.cacheManager.lastSelectedListIndex
         if lastSelectedIndex != C.homePageIndex {
-            let item = di.storageManager.getItem(at: lastSelectedIndex)
-            goToCheckListItems(for: item, at: lastSelectedIndex)
+            if let item = di.storageManager.getItem(at: lastSelectedIndex) {
+                goToCheckListItems(for: item, at: lastSelectedIndex)
+            }
         }
     }
     

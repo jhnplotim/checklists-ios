@@ -21,7 +21,7 @@ protocol AllListsTransition: AnyObject {
 
 final class AllListsViewModel {
 
-    typealias DI = WithStorageManager & WithCacheManager
+    typealias DI = WithStorageManager
 
     private weak var route: AppRoute?
     private weak var viewDelegate: AllListsViewDelegate?
