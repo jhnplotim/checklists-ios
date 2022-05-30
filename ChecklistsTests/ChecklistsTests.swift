@@ -18,16 +18,27 @@ class ChecklistsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testListItemEmptyState() throws {
+        let checklist = ListItem(title: "Shopping")
+        XCTAssertTrue(checklist.checkListItems.isEmpty, "Check list should be empty")
+        XCTAssertEqual(checklist.state, ListItem.State.noItems)
+        XCTAssertEqual(checklist.state.message, L.Feature.Checklist.State.Noitems.label)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testListItemAllDoneState() throws {
+        let checklist = ListItem(title: "Shopping")
+        checklist.checkListItems.append(ChecklistItem(title: "Shoes", isChecked: true))
+        XCTAssertFalse(checklist.checkListItems.isEmpty, "Check list should NOT be empty")
+        XCTAssertEqual(checklist.state, ListItem.State.allItemsDone)
+        XCTAssertEqual(checklist.state.message, L.Feature.Checklist.State.Allitemsdone.label)
+    }
+    
+    func testListItemItemsRemainingState() throws {
+        let checklist = ListItem(title: "Shopping")
+        checklist.checkListItems.append(ChecklistItem(title: "Shoes", isChecked: false))
+        XCTAssertFalse(checklist.checkListItems.isEmpty, "Check list should NOT be empty")
+        XCTAssertEqual(checklist.state, ListItem.State.itemsRemaining(1))
+        XCTAssertEqual(checklist.state.message, L.Feature.Checklist.State.Itemsremaining.label(1))
     }
 
 }

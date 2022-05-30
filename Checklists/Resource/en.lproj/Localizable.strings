@@ -52,3 +52,9 @@
 
 "feature.checklist.default.name" = "Shopping";
 
+"feature.checklist.state.noitems.label" = "(No Items)";
+
+"feature.checklist.state.allitemsdone.label" = "All done!";
+
+"feature.checklist.state.itemsremaining.label" = "%d Remaining";
+
