@@ -16,8 +16,12 @@ protocol CacheManager: AnyObject {
 
     var lastSelectedListIndex: Int { get set }
     
+    var isFirstRun: Bool { get set }
+    
     // MARK: - Publishers
     var lastSelectedListIndexPublisher: AnyPublisher<Int, Never> { get }
+    
+    var isFirstRunPublisher: AnyPublisher<Bool, Never> { get }
     
     func flush()
 

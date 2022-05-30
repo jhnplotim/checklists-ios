@@ -22,7 +22,7 @@ final class AddChecklistViewModel {
 
     // typealias DI = AnyObject
 
-    private weak var route: AppRoute?
+    private weak var route: ChecklistItemRoute?
     private var completion: AddOrEditCheckListItem?
     private var itemToEdit: (Int, ChecklistRowView.Model)?
     private weak var viewDelegate: AddChecklistViewDelegate?
@@ -31,7 +31,7 @@ final class AddChecklistViewModel {
 
     // MARK: - Constructor
 
-    init(completion: AddOrEditCheckListItem? = nil, route: AppRoute? = nil, itemToEdit: (Int, ChecklistRowView.Model)? = nil) {
+    init(completion: AddOrEditCheckListItem? = nil, route: ChecklistItemRoute? = nil, itemToEdit: (Int, ChecklistRowView.Model)? = nil) {
         self.completion = completion
         self.route = route
         self.itemToEdit = itemToEdit

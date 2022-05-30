@@ -50,3 +50,5 @@
 
 "feature.checklistitemdetail.textfield.placeholder" = "Name of the item";
 
+"feature.checklist.default.name" = "Shopping";
+

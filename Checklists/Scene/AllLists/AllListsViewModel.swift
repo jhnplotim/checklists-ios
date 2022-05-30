@@ -23,14 +23,14 @@ final class AllListsViewModel {
 
     typealias DI = WithStorageManager
 
-    private weak var route: AppRoute?
+    private weak var route: ChecklistRoute?
     private weak var viewDelegate: AllListsViewDelegate?
 
     private var di: DI
 
     // MARK: - Constructor
 
-    init(di: DI, route: AppRoute? = nil) {
+    init(di: DI, route: ChecklistRoute? = nil) {
         self.di = di
         self.route = route
     }

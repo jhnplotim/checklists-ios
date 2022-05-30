@@ -35,13 +35,13 @@ final class RootCoordinator: Coordinator {
     }
     
     func start() {
-        let appCoordinator = AppCoordinator(navigationController: UINavigationController(), parentCoordinator: self, di: di)
-        appCoordinator.start()
-        childCoordinators.append(appCoordinator)
+        let checklistCoordinator = ChecklistCoordinator(navigationController: UINavigationController(), parentCoordinator: self, di: di)
+        checklistCoordinator.start()
+        childCoordinators.append(checklistCoordinator)
         
         // TODO: Switch between Unauthenticated and authenticated workflows later
-        // Set AppCoordinator as the root coordinator
-        Animator.setRootViewController(appCoordinator.coordinatorStartController, window: applicationWindow)
+        // Set ChecklistCoordinator as the root coordinator
+        Animator.setRootViewController(checklistCoordinator.coordinatorStartController, window: applicationWindow)
     }
     
 }

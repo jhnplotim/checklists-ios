@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0B9A0F2844A57A000E55D4 /* ChecklistItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B9A0E2844A57A000E55D4 /* ChecklistItemCoordinator.swift */; };
 		7E3287F228438DEC0003AE9E /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F028438DEC0003AE9E /* CacheManager.swift */; };
 		7E3287F328438DEC0003AE9E /* CacheManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */; };
 		7E3287F528438EBC0003AE9E /* UserDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */; };
@@ -46,7 +47,7 @@
 		DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992613283E1673004C0FF6 /* GesturePublisher.swift */; };
 		DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992621283E1F53004C0FF6 /* Coordinator.swift */; };
 		DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992625283E2165004C0FF6 /* RootCoordinator.swift */; };
-		DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992629283E223D004C0FF6 /* AppCoordinator.swift */; };
+		DA99262A283E223D004C0FF6 /* ChecklistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992629283E223D004C0FF6 /* ChecklistCoordinator.swift */; };
 		DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262C283E26CF004C0FF6 /* .swiftlint.yml */; };
 		DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262E283E274C004C0FF6 /* swiftgen.yml */; };
 		DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA992633283E28FB004C0FF6 /* Localizable.strings */; };
@@ -91,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E0B9A0E2844A57A000E55D4 /* ChecklistItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemCoordinator.swift; sourceTree = "<group>"; };
 		7E3287F028438DEC0003AE9E /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagerImpl.swift; sourceTree = "<group>"; };
 		7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValue.swift; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 		DA99261F283E18E6004C0FF6 /* production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = production.xcconfig; sourceTree = "<group>"; };
 		DA992621283E1F53004C0FF6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DA992625283E2165004C0FF6 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
-		DA992629283E223D004C0FF6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DA992629283E223D004C0FF6 /* ChecklistCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCoordinator.swift; sourceTree = "<group>"; };
 		DA99262C283E26CF004C0FF6 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		DA99262E283E274C004C0FF6 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		DA992634283E28FB004C0FF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
@@ -203,9 +205,9 @@
 		7EE3C3B32841FA21000ED101 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7EE3C3B42841FA44000ED101 /* DependencyManager.swift */,
 				7E3287EF28438D0E0003AE9E /* CacheManager */,
 				7EE3C3B62841FA8A000ED101 /* StorageManager */,
-				7EE3C3B42841FA44000ED101 /* DependencyManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -292,13 +294,13 @@
 		DA9925D3283E0DD5004C0FF6 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				7EE3C3BF2841FC01000ED101 /* Model */,
-				7EE3C3B32841FA21000ED101 /* Manager */,
-				DA992620283E1EB7004C0FF6 /* Coordinator */,
 				DA992604283E10C6004C0FF6 /* Application */,
+				DA992620283E1EB7004C0FF6 /* Coordinator */,
+				7EE3C3B32841FA21000ED101 /* Manager */,
+				7EE3C3BF2841FC01000ED101 /* Model */,
+				DA992616283E174E004C0FF6 /* Resource */,
 				DA992615283E171A004C0FF6 /* Scene */,
 				DAC1379B283E973100DDDD47 /* View */,
-				DA992616283E174E004C0FF6 /* Resource */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -324,12 +326,12 @@
 			isa = PBXGroup;
 			children = (
 				DA99261C283E1869004C0FF6 /* Configuration */,
-				DA99260E283E15C4004C0FF6 /* Helpers */,
 				DA992609283E132A004C0FF6 /* Extension */,
-				DA9925E2283E0DD7004C0FF6 /* Info.plist */,
+				DA99260E283E15C4004C0FF6 /* Helpers */,
 				DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */,
-				DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */,
 				DA992621283E1F53004C0FF6 /* Coordinator.swift */,
+				DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */,
+				DA9925E2283E0DD7004C0FF6 /* Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -357,11 +359,11 @@
 		DA992615283E171A004C0FF6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				7EE3C3C2284221D8000ED101 /* AllLists */,
-				7EE3C3C32842221C000ED101 /* ListDetail */,
-				DA992643283E52CD004C0FF6 /* Checklists */,
-				7EF05ADC283FDFA900F4873B /* ChecklistDetail */,
 				DA99263E283E51F0004C0FF6 /* Base */,
+				7EE3C3C2284221D8000ED101 /* AllLists */,
+				7EF05ADC283FDFA900F4873B /* ChecklistDetail */,
+				DA992643283E52CD004C0FF6 /* Checklists */,
+				7EE3C3C32842221C000ED101 /* ListDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -370,12 +372,12 @@
 			isa = PBXGroup;
 			children = (
 				7EAC41F12843B760005609F4 /* README.MD */,
+				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
+				DA99262C283E26CF004C0FF6 /* .swiftlint.yml */,
+				DA99262E283E274C004C0FF6 /* swiftgen.yml */,
 				DA992632283E28FB004C0FF6 /* en.lproj */,
 				DA992630283E27AF004C0FF6 /* Generated */,
-				DA99262E283E274C004C0FF6 /* swiftgen.yml */,
-				DA99262C283E26CF004C0FF6 /* .swiftlint.yml */,
 				DA992617283E1767004C0FF6 /* LaunchScreen */,
-				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -401,9 +403,9 @@
 		DA992620283E1EB7004C0FF6 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				DA992628283E221D004C0FF6 /* UnAuthenticated */,
-				DA992627283E2212004C0FF6 /* Authenticated */,
 				DA992625283E2165004C0FF6 /* RootCoordinator.swift */,
+				DA992627283E2212004C0FF6 /* Authenticated */,
+				DA992628283E221D004C0FF6 /* UnAuthenticated */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -411,7 +413,8 @@
 		DA992627283E2212004C0FF6 /* Authenticated */ = {
 			isa = PBXGroup;
 			children = (
-				DA992629283E223D004C0FF6 /* AppCoordinator.swift */,
+				DA992629283E223D004C0FF6 /* ChecklistCoordinator.swift */,
+				7E0B9A0E2844A57A000E55D4 /* ChecklistItemCoordinator.swift */,
 			);
 			path = Authenticated;
 			sourceTree = "<group>";
@@ -462,8 +465,8 @@
 		DAC1379B283E973100DDDD47 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DAC137B9283E9BE700DDDD47 /* UIKit */,
 				DAC1379C283E973E00DDDD47 /* Components */,
+				DAC137B9283E9BE700DDDD47 /* UIKit */,
 				DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */,
 				DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */,
 			);
@@ -473,9 +476,9 @@
 		DAC1379C283E973E00DDDD47 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DAC1379F283E98CA00DDDD47 /* ChecklistRow */,
 				7EE3C3D2284225B0000ED101 /* ListRow */,
 				DAC137A8283E9ACF00DDDD47 /* Separator */,
-				DAC1379F283E98CA00DDDD47 /* ChecklistRow */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -707,7 +710,7 @@
 			files = (
 				7E3287FD2843927B0003AE9E /* KeychainValue.swift in Sources */,
 				7EE3C3D128422539000ED101 /* ListItem.swift in Sources */,
-				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
+				DA99262A283E223D004C0FF6 /* ChecklistCoordinator.swift in Sources */,
 				7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */,
 				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
 				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,
@@ -727,6 +730,7 @@
 				7EE3C3CD284224E9000ED101 /* ListDetailViewModel.swift in Sources */,
 				DA992612283E161F004C0FF6 /* CombineTimer.swift in Sources */,
 				DAC137BD283E9C4800DDDD47 /* UIView+.swift in Sources */,
+				7E0B9A0F2844A57A000E55D4 /* ChecklistItemCoordinator.swift in Sources */,
 				DA99260D283E149C004C0FF6 /* UILabel+.swift in Sources */,
 				DAC137BF283F5B6F00DDDD47 /* ShadowView.swift in Sources */,
 				DA992642283E5225004C0FF6 /* BaseUITableViewController.swift in Sources */,

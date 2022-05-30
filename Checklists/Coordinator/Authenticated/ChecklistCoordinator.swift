@@ -1,5 +1,5 @@
 // 
-//  AppCoordinator.swift
+//  ChecklistCoordinator.swift
 //  Checklists
 //
 //  Created by Otim John Paul on 25.05.22.
@@ -10,19 +10,18 @@ import Combine
 
 // MARK: - Router Interface
 
-protocol AppRoute: AnyObject {
+protocol ChecklistRoute: AnyObject {
     func goToCheckListItems(for checklist: ListItem, at position: Int)
-    func goToAddCheckListItem(completion: AddOrEditCheckListItem?)
-    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?)
-    /// Pop to prev view controller (if current is pushed onto stack)
+     /// Pop to prev view controller (if current is pushed onto stack)
     func popToPrevious()
     func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?)
 }
 
-final class AppCoordinator: Coordinator {
+final class ChecklistCoordinator: Coordinator {
     
     private enum C {
         static let homePageIndex = -1
+        static let startingCheckListName = L.Feature.Checklist.Default.name
     }
     
     typealias DI = WithCacheManager & WithStorageManager
@@ -43,6 +42,8 @@ final class AppCoordinator: Coordinator {
     
     func start() {
         setRoot(AllListsViewController.create(viewModel: AllListsViewModel(di: di, route: self)))
+        // handle first run
+        handleFirstRun()
         // Go to checklist items page if possible
         let lastSelectedIndex = di.cacheManager.lastSelectedListIndex
         if lastSelectedIndex != C.homePageIndex {
@@ -56,19 +57,14 @@ final class AppCoordinator: Coordinator {
 
 // MARK: - Router implementation
 
-extension AppCoordinator: AppRoute {
+extension ChecklistCoordinator: ChecklistRoute {
     func goToCheckListItems(for checklist: ListItem, at position: Int) {
-        // Save last opened checklist
-        di.cacheManager.lastSelectedListIndex = position
-        // Push
-        push(ChecklistViewController.create(viewModel: ChecklistViewModel(di: di, route: self, listToView: checklist )))
-    }
-    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?) {
-        push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self, itemToEdit: (position, item))))
-    }
-    
-    func goToAddCheckListItem(completion: AddOrEditCheckListItem?) {
-        push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self)))
+        let checklistItemCoordinator = ChecklistItemCoordinator(navigationController: navigationController, parentCoordinator: self, checkList: (position, checklist))
+        // Start
+        checklistItemCoordinator.start()
+        
+        childCoordinators.append(checklistItemCoordinator)
+       
     }
     
     func popToPrevious() {
@@ -82,6 +78,15 @@ extension AppCoordinator: AppRoute {
 
 // MARK: - Private
 
-extension AppCoordinator {
-
+extension ChecklistCoordinator {
+    func handleFirstRun() {
+        if di.cacheManager.isFirstRun {
+            // Add default first item to list
+            di.storageManager.update(items: [ListItem(title: C.startingCheckListName)])
+            
+            // Set item as last selected index so that it is opened
+            di.cacheManager.lastSelectedListIndex = 0
+            di.cacheManager.isFirstRun = false
+        }
+    }
 }
