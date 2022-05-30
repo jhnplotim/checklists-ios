@@ -9,7 +9,8 @@ import UIKit
 import Combine
  
 protocol ListDetailViewDelegate: AnyObject {
-    func preload(editItem: ListRowView.Model)
+    func preload(editItem: ListItem)
+    func iconSelected(withName name: String)
 }
 
 // MARK: - Class
@@ -28,6 +29,8 @@ final class ListDetailViewController: BaseUITableViewController, UITextFieldDele
     // MARK: - Outlet
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarBtn: UIBarButtonItem!
+    @IBOutlet weak var iconLabel: Label!
+    @IBOutlet weak var iconImage: UIImageView!
     
     // MARK: - Constant
 
@@ -35,12 +38,18 @@ final class ListDetailViewController: BaseUITableViewController, UITextFieldDele
         static let addListTitle = L.Feature.Listdetail.Add.title
         static let editListTitle = L.Feature.Listdetail.Edit.title
         static let textFieldPlaceHolder = L.Feature.Listdetail.Textfield.placeholder
+        static let iconLabelTitle = L.Feature.Listdetail.Icon.title
     }
 
     // MARK: - Variable
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
+    private var iconName: String = "" {
+        didSet {
+            iconImage.image = iconName.isEmpty ? UIImage(systemName: "folder") : UIImage(systemName: iconName)
+        }
+    }
     
     // MARK: - Actions
     
@@ -55,7 +64,7 @@ final class ListDetailViewController: BaseUITableViewController, UITextFieldDele
         if !value.isEmpty {
             print("Contents of the text field: \(value)")
             // TODO: Handle empty inputs
-            viewModel.itemAddedOrEdited(titleName: value)
+            viewModel.itemAddedOrEdited(titleName: value, iconName: iconName)
         }
         
         viewModel.goBack()
@@ -93,6 +102,7 @@ extension ListDetailViewController {
         // Set placeholder of text field
         textField.placeholder = C.textFieldPlaceHolder
         textField.delegate = self
+        iconLabel.text = C.iconLabelTitle
     }
 
 }
@@ -100,10 +110,15 @@ extension ListDetailViewController {
 // MARK: - ListDetailViewDelegate
 
 extension ListDetailViewController: ListDetailViewDelegate {
-    func preload(editItem: ListRowView.Model) {
+    func preload(editItem: ListItem) {
         textField.text = editItem.title
+        iconName = editItem.iconName
         navigationItem.title = C.editListTitle
         doneBarBtn.isEnabled = true
+    }
+    
+    func iconSelected(withName name: String) {
+        iconName = name
     }
 }
 
@@ -111,7 +126,12 @@ extension ListDetailViewController: ListDetailViewDelegate {
 extension ListDetailViewController {
     // Disable row selection
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        return indexPath.section == 1 ? indexPath : nil
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // No need to check since only one row is selectable
+        viewModel.goToIconPicker()
     }
 }
 

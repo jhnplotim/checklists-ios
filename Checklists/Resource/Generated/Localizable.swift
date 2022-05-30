@@ -55,6 +55,26 @@ internal enum L {
         /// Shopping
         internal static let name = L.tr("Localizable", "feature.checklist.default.name")
       }
+      internal enum Iconpicker {
+        /// Choose Icon
+        internal static let title = L.tr("Localizable", "feature.checklist.iconpicker.title")
+      }
+      internal enum State {
+        internal enum Allitemsdone {
+          /// All done!
+          internal static let label = L.tr("Localizable", "feature.checklist.state.allitemsdone.label")
+        }
+        internal enum Itemsremaining {
+          /// %d Remaining
+          internal static func label(_ p1: Int) -> String {
+            return L.tr("Localizable", "feature.checklist.state.itemsremaining.label", p1)
+          }
+        }
+        internal enum Noitems {
+          /// (No Items)
+          internal static let label = L.tr("Localizable", "feature.checklist.state.noitems.label")
+        }
+      }
     }
     internal enum Checklistitemdetail {
       internal enum Add {
@@ -82,6 +102,10 @@ internal enum L {
       internal enum Edit {
         /// Edit List
         internal static let title = L.tr("Localizable", "feature.listdetail.edit.title")
+      }
+      internal enum Icon {
+        /// Icon
+        internal static let title = L.tr("Localizable", "feature.listdetail.icon.title")
       }
       internal enum Textfield {
         /// Name of the List

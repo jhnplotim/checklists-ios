@@ -10,7 +10,7 @@ import UIKit
 extension UIFont {
 
     static var caption: UIFont {
-        return UIFont.systemFont(ofSize: 24, weight: .medium)
+        return UIFont.systemFont(ofSize: 12, weight: .medium)
     }
 
     static var headline: UIFont {

@@ -42,19 +42,19 @@ final class AddChecklistViewModel {
 // MARK: - AddChecklistVM
 
 extension AddChecklistViewModel: AddChecklistVM {
-    func itemAddedOrEdited(titleName: String) {
-        if let itemToEdit = itemToEdit {
-            completion?(ChecklistRowView.Model(title: titleName, isChecked: itemToEdit.1.isChecked), itemToEdit.0)
-        } else {
-            completion?(ChecklistRowView.Model(title: titleName, isChecked: false), nil)
-        }
-    }
-
     func setup(viewDelegate: AddChecklistViewDelegate) {
         self.viewDelegate = viewDelegate
         if let itemToEdit = itemToEdit {
             // Preload Item to Edit and put page in edit mode
             self.viewDelegate?.preload(editItem: itemToEdit.1)
+        }
+    }
+    
+    func itemAddedOrEdited(titleName: String) {
+        if let itemToEdit = itemToEdit {
+            completion?(ChecklistRowView.Model(title: titleName, isChecked: itemToEdit.1.isChecked), itemToEdit.0)
+        } else {
+            completion?(ChecklistRowView.Model(title: titleName, isChecked: false), nil)
         }
     }
 

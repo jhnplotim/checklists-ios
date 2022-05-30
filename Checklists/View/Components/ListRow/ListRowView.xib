@@ -5,11 +5,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListRowView" customModule="Checklists" customModuleProvider="target">
             <connections>
+                <outlet property="iconImage" destination="R82-qx-63P" id="4Wv-cL-UAF"/>
+                <outlet property="subTitleLabel" destination="TpY-mA-F8b" id="kNt-T4-els"/>
                 <outlet property="titleLabel" destination="dHW-qh-tqS" id="Rmt-MI-2hW"/>
             </connections>
         </placeholder>
@@ -18,22 +21,78 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-qh-tqS" customClass="Label" customModule="Checklists" customModuleProvider="target">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-GU-gb1" userLabel="Container">
                     <rect key="frame" x="16" y="8" width="382" height="284"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" name="DarkGray"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="mainRegular" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-Hc-daS" userLabel="IconContainer">
+                            <rect key="frame" x="0.0" y="0.0" width="132" height="284"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R82-qx-63P">
+                                    <rect key="frame" x="0.0" y="0.0" width="132" height="284"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="R82-qx-63P" secondAttribute="trailing" id="8ZV-jY-SBs"/>
+                                <constraint firstAttribute="bottom" secondItem="R82-qx-63P" secondAttribute="bottom" id="q1f-zO-C5r"/>
+                                <constraint firstItem="R82-qx-63P" firstAttribute="leading" secondItem="9KA-Hc-daS" secondAttribute="leading" id="riJ-el-yM0"/>
+                                <constraint firstItem="R82-qx-63P" firstAttribute="top" secondItem="9KA-Hc-daS" secondAttribute="top" id="xNf-TD-Kl5"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6ww-yZ-vHG">
+                            <rect key="frame" x="132" y="0.0" width="250" height="284"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Acv-Fy-8kz" userLabel="TitleWrapper">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="138"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-qh-tqS" customClass="Label" customModule="Checklists" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="138"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" name="DarkGray"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="mainRegular" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFI-bZ-ST1" userLabel="SubtitleWrapper">
+                                    <rect key="frame" x="0.0" y="146" width="250" height="138"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpY-mA-F8b" customClass="Label" customModule="Checklists" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="138"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" name="DarkGray"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="mainRegular" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="headline" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="caption" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="ocu-5L-8PC"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="6ww-yZ-vHG" firstAttribute="leading" secondItem="9KA-Hc-daS" secondAttribute="trailing" id="5Py-uB-QwP"/>
+                        <constraint firstItem="9KA-Hc-daS" firstAttribute="top" secondItem="WIf-GU-gb1" secondAttribute="top" id="MJA-CG-kOU"/>
+                        <constraint firstItem="9KA-Hc-daS" firstAttribute="leading" secondItem="WIf-GU-gb1" secondAttribute="leading" id="uEI-tu-zjY"/>
+                        <constraint firstAttribute="bottom" secondItem="9KA-Hc-daS" secondAttribute="bottom" id="ve6-wI-A0e"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="dHW-qh-tqS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="GIB-6s-IhH"/>
-                <constraint firstAttribute="bottom" secondItem="dHW-qh-tqS" secondAttribute="bottom" constant="8" id="H2m-f8-EZM"/>
-                <constraint firstAttribute="trailing" secondItem="dHW-qh-tqS" secondAttribute="trailing" constant="16" id="h2h-bQ-8yr"/>
-                <constraint firstItem="dHW-qh-tqS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="hEZ-MO-TOj"/>
+                <constraint firstItem="WIf-GU-gb1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="6xr-QY-3qa"/>
+                <constraint firstItem="WIf-GU-gb1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="MQ8-YZ-M09"/>
+                <constraint firstAttribute="trailing" secondItem="WIf-GU-gb1" secondAttribute="trailing" constant="16" id="Q49-bK-47i"/>
+                <constraint firstAttribute="bottom" secondItem="WIf-GU-gb1" secondAttribute="bottom" constant="8" id="VVE-vf-fz0"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

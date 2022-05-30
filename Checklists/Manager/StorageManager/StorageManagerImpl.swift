@@ -37,14 +37,16 @@ final class StorageManagerImpl: StorageManager {
 
     private let di: DI
     
-    private var items: [ListItem] = []
+    private var dataModel: DataModel
 
     // MARK: - Initializer
 
     private init(di: DependencyContainer) {
         self.di = di
-        // load checklists into memory
-        self.items = loadChecklistsInToMemory()
+        self.dataModel = DataModel()
+        // load checklists into previously empty
+        let items = loadChecklistsInToMemory()
+        self.dataModel.append(contentsOf: items)
     }
 
 }
@@ -52,9 +54,9 @@ final class StorageManagerImpl: StorageManager {
 // MARK: - Public
 
 extension StorageManagerImpl {
-    func load() -> [ListItem] {
+    func load() -> DataModel {
         // Return reference to preloaded list
-        return items
+        return self.dataModel
     }
     
     func save() {
@@ -62,8 +64,8 @@ extension StorageManagerImpl {
         let encoder = PropertyListEncoder()
         // 2
         do {
-          // 3
-          let data = try encoder.encode(items)
+          // 3.2
+            let data = try encoder.encode(dataModel.getItems())
           // 4
             try data.write(to: dataFilePath(forFileWithName: C.fileName),
                     options: Data.WritingOptions.atomic)
@@ -75,15 +77,11 @@ extension StorageManagerImpl {
     }
     
     func update(items: [ListItem]) {
-        self.items = items
+        self.dataModel.append(contentsOf: items)
     }
     
     func getItem(at position: Int) -> ListItem? {
-        if items.isEmpty || items.count <= position {
-            return nil
-        } else {
-            return items[position]
-        }
+        return dataModel.getItem(at: position)
     }
 
 }

@@ -11,7 +11,7 @@ import Foundation
 
 protocol StorageManager: AnyObject {
     func save()
-    func load() -> [ListItem]
+    func load() -> DataModel
     func update(items: [ListItem])
     func getItem(at position: Int) -> ListItem?
 }
