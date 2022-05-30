@@ -46,7 +46,7 @@
 		DA992614283E1673004C0FF6 /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992613283E1673004C0FF6 /* GesturePublisher.swift */; };
 		DA992622283E1F53004C0FF6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992621283E1F53004C0FF6 /* Coordinator.swift */; };
 		DA992626283E2165004C0FF6 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992625283E2165004C0FF6 /* RootCoordinator.swift */; };
-		DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992629283E223D004C0FF6 /* AppCoordinator.swift */; };
+		DA99262A283E223D004C0FF6 /* ChecklistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA992629283E223D004C0FF6 /* ChecklistCoordinator.swift */; };
 		DA99262D283E26CF004C0FF6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262C283E26CF004C0FF6 /* .swiftlint.yml */; };
 		DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA99262E283E274C004C0FF6 /* swiftgen.yml */; };
 		DA992635283E28FB004C0FF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA992633283E28FB004C0FF6 /* Localizable.strings */; };
@@ -135,7 +135,7 @@
 		DA99261F283E18E6004C0FF6 /* production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = production.xcconfig; sourceTree = "<group>"; };
 		DA992621283E1F53004C0FF6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DA992625283E2165004C0FF6 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
-		DA992629283E223D004C0FF6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DA992629283E223D004C0FF6 /* ChecklistCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistCoordinator.swift; sourceTree = "<group>"; };
 		DA99262C283E26CF004C0FF6 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		DA99262E283E274C004C0FF6 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		DA992634283E28FB004C0FF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
@@ -411,7 +411,7 @@
 		DA992627283E2212004C0FF6 /* Authenticated */ = {
 			isa = PBXGroup;
 			children = (
-				DA992629283E223D004C0FF6 /* AppCoordinator.swift */,
+				DA992629283E223D004C0FF6 /* ChecklistCoordinator.swift */,
 			);
 			path = Authenticated;
 			sourceTree = "<group>";
@@ -707,7 +707,7 @@
 			files = (
 				7E3287FD2843927B0003AE9E /* KeychainValue.swift in Sources */,
 				7EE3C3D128422539000ED101 /* ListItem.swift in Sources */,
-				DA99262A283E223D004C0FF6 /* AppCoordinator.swift in Sources */,
+				DA99262A283E223D004C0FF6 /* ChecklistCoordinator.swift in Sources */,
 				7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */,
 				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
 				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,

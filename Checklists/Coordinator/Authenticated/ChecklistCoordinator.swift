@@ -1,5 +1,5 @@
 // 
-//  AppCoordinator.swift
+//  ChecklistCoordinator.swift
 //  Checklists
 //
 //  Created by Otim John Paul on 25.05.22.
@@ -10,7 +10,7 @@ import Combine
 
 // MARK: - Router Interface
 
-protocol AppRoute: AnyObject {
+protocol ChecklistRoute: AnyObject {
     func goToCheckListItems(for checklist: ListItem, at position: Int)
     func goToAddCheckListItem(completion: AddOrEditCheckListItem?)
     func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?)
@@ -19,7 +19,7 @@ protocol AppRoute: AnyObject {
     func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?)
 }
 
-final class AppCoordinator: Coordinator {
+final class ChecklistCoordinator: Coordinator {
     
     private enum C {
         static let homePageIndex = -1
@@ -56,7 +56,7 @@ final class AppCoordinator: Coordinator {
 
 // MARK: - Router implementation
 
-extension AppCoordinator: AppRoute {
+extension ChecklistCoordinator: ChecklistRoute {
     func goToCheckListItems(for checklist: ListItem, at position: Int) {
         // Save last opened checklist
         di.cacheManager.lastSelectedListIndex = position
@@ -82,6 +82,6 @@ extension AppCoordinator: AppRoute {
 
 // MARK: - Private
 
-extension AppCoordinator {
+extension ChecklistCoordinator {
 
 }

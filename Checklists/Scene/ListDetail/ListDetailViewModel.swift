@@ -22,7 +22,7 @@ final class ListDetailViewModel {
 
     // typealias DI = AnyObject
 
-    private weak var route: AppRoute?
+    private weak var route: ChecklistRoute?
     private weak var viewDelegate: ListDetailViewDelegate?
 
     // private var di: DI
@@ -31,7 +31,7 @@ final class ListDetailViewModel {
 
     // MARK: - Constructor
 
-    init(route: AppRoute? = nil, completion: AddOrEditCheckList? = nil, itemToEdit: (Int, ListRowView.Model)? = nil) {
+    init(route: ChecklistRoute? = nil, completion: AddOrEditCheckList? = nil, itemToEdit: (Int, ListRowView.Model)? = nil) {
         // self.di = di
         self.route = route
         self.completion = completion
