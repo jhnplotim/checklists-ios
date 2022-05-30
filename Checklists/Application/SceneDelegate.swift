@@ -20,6 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         self.window = window
+        // Set global tint color
+        window.tintColor = Asset.purple.color
+        
         fireMainController(window)
     }
 
