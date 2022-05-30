@@ -205,9 +205,9 @@
 		7EE3C3B32841FA21000ED101 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7EE3C3B42841FA44000ED101 /* DependencyManager.swift */,
 				7E3287EF28438D0E0003AE9E /* CacheManager */,
 				7EE3C3B62841FA8A000ED101 /* StorageManager */,
-				7EE3C3B42841FA44000ED101 /* DependencyManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -294,13 +294,13 @@
 		DA9925D3283E0DD5004C0FF6 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				7EE3C3BF2841FC01000ED101 /* Model */,
-				7EE3C3B32841FA21000ED101 /* Manager */,
-				DA992620283E1EB7004C0FF6 /* Coordinator */,
 				DA992604283E10C6004C0FF6 /* Application */,
+				DA992620283E1EB7004C0FF6 /* Coordinator */,
+				7EE3C3B32841FA21000ED101 /* Manager */,
+				7EE3C3BF2841FC01000ED101 /* Model */,
+				DA992616283E174E004C0FF6 /* Resource */,
 				DA992615283E171A004C0FF6 /* Scene */,
 				DAC1379B283E973100DDDD47 /* View */,
-				DA992616283E174E004C0FF6 /* Resource */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -326,12 +326,12 @@
 			isa = PBXGroup;
 			children = (
 				DA99261C283E1869004C0FF6 /* Configuration */,
-				DA99260E283E15C4004C0FF6 /* Helpers */,
 				DA992609283E132A004C0FF6 /* Extension */,
-				DA9925E2283E0DD7004C0FF6 /* Info.plist */,
+				DA99260E283E15C4004C0FF6 /* Helpers */,
 				DA9925D4283E0DD5004C0FF6 /* AppDelegate.swift */,
-				DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */,
 				DA992621283E1F53004C0FF6 /* Coordinator.swift */,
+				DA9925D6283E0DD5004C0FF6 /* SceneDelegate.swift */,
+				DA9925E2283E0DD7004C0FF6 /* Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -359,11 +359,11 @@
 		DA992615283E171A004C0FF6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				7EE3C3C2284221D8000ED101 /* AllLists */,
-				7EE3C3C32842221C000ED101 /* ListDetail */,
-				DA992643283E52CD004C0FF6 /* Checklists */,
-				7EF05ADC283FDFA900F4873B /* ChecklistDetail */,
 				DA99263E283E51F0004C0FF6 /* Base */,
+				7EE3C3C2284221D8000ED101 /* AllLists */,
+				7EF05ADC283FDFA900F4873B /* ChecklistDetail */,
+				DA992643283E52CD004C0FF6 /* Checklists */,
+				7EE3C3C32842221C000ED101 /* ListDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -372,12 +372,12 @@
 			isa = PBXGroup;
 			children = (
 				7EAC41F12843B760005609F4 /* README.MD */,
+				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
+				DA99262C283E26CF004C0FF6 /* .swiftlint.yml */,
+				DA99262E283E274C004C0FF6 /* swiftgen.yml */,
 				DA992632283E28FB004C0FF6 /* en.lproj */,
 				DA992630283E27AF004C0FF6 /* Generated */,
-				DA99262E283E274C004C0FF6 /* swiftgen.yml */,
-				DA99262C283E26CF004C0FF6 /* .swiftlint.yml */,
 				DA992617283E1767004C0FF6 /* LaunchScreen */,
-				DA9925DD283E0DD7004C0FF6 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -403,9 +403,9 @@
 		DA992620283E1EB7004C0FF6 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				DA992628283E221D004C0FF6 /* UnAuthenticated */,
-				DA992627283E2212004C0FF6 /* Authenticated */,
 				DA992625283E2165004C0FF6 /* RootCoordinator.swift */,
+				DA992627283E2212004C0FF6 /* Authenticated */,
+				DA992628283E221D004C0FF6 /* UnAuthenticated */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -465,8 +465,8 @@
 		DAC1379B283E973100DDDD47 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DAC137B9283E9BE700DDDD47 /* UIKit */,
 				DAC1379C283E973E00DDDD47 /* Components */,
+				DAC137B9283E9BE700DDDD47 /* UIKit */,
 				DAC1379D283E97EF00DDDD47 /* ShrinkCell.swift */,
 				DAC137BE283F5B6F00DDDD47 /* ShadowView.swift */,
 			);
@@ -476,9 +476,9 @@
 		DAC1379C283E973E00DDDD47 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DAC1379F283E98CA00DDDD47 /* ChecklistRow */,
 				7EE3C3D2284225B0000ED101 /* ListRow */,
 				DAC137A8283E9ACF00DDDD47 /* Separator */,
-				DAC1379F283E98CA00DDDD47 /* ChecklistRow */,
 			);
 			path = Components;
 			sourceTree = "<group>";
