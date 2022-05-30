@@ -21,6 +21,7 @@ final class ChecklistCoordinator: Coordinator {
     
     private enum C {
         static let homePageIndex = -1
+        static let startingCheckListName = L.Feature.Checklist.Default.name
     }
     
     typealias DI = WithCacheManager & WithStorageManager
@@ -41,6 +42,8 @@ final class ChecklistCoordinator: Coordinator {
     
     func start() {
         setRoot(AllListsViewController.create(viewModel: AllListsViewModel(di: di, route: self)))
+        // handle first run
+        handleFirstRun()
         // Go to checklist items page if possible
         let lastSelectedIndex = di.cacheManager.lastSelectedListIndex
         if lastSelectedIndex != C.homePageIndex {
@@ -76,5 +79,14 @@ extension ChecklistCoordinator: ChecklistRoute {
 // MARK: - Private
 
 extension ChecklistCoordinator {
-
+    func handleFirstRun() {
+        if di.cacheManager.isFirstRun {
+            // Add default first item to list
+            di.storageManager.update(items: [ListItem(title: C.startingCheckListName)])
+            
+            // Set item as last selected index so that it is opened
+            di.cacheManager.lastSelectedListIndex = 0
+            di.cacheManager.isFirstRun = false
+        }
+    }
 }

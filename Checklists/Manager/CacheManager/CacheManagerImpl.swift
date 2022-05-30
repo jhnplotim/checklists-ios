@@ -17,8 +17,13 @@ final class CacheManagerImpl: CacheManager {
     @UserDefaultValue("lastSelectedListIndex", defaultValue: -1)
     var lastSelectedListIndex: Int
     
+    @UserDefaultValue("isFirstRun", defaultValue: true)
+    var isFirstRun: Bool
+    
     // MARK: - Publishers
     lazy var lastSelectedListIndexPublisher: AnyPublisher<Int, Never> = self._lastSelectedListIndex.publisher.eraseToAnyPublisher()
+    
+    lazy var isFirstRunPublisher: AnyPublisher<Bool, Never> = self._isFirstRun.publisher.eraseToAnyPublisher()
 
 }
 
