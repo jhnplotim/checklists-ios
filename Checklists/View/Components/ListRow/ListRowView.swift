@@ -13,10 +13,12 @@ final class ListRowView: ReusableNibView {
 
     struct Model: Codable {
         let title: String
+        let subTitle: String
     }
 
     // MARK: - Outlet
     @IBOutlet weak var titleLabel: Label!
+    @IBOutlet weak var subTitleLabel: Label!
     
     // MARK: - Variable
 
@@ -34,6 +36,7 @@ final class ListRowView: ReusableNibView {
         self.model = model
         
         titleLabel.text = model.title
+        subTitleLabel.text = model.subTitle
     }
 
 }

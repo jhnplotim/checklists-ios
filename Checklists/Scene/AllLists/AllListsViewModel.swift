@@ -10,13 +10,12 @@ import Foundation
 protocol AllListsVM: AnyObject {
     func setup(viewDelegate: AllListsViewDelegate)
     func loadChecklists()
-    func updateStorageMgr(items: [ListItem])
 }
 
 protocol AllListsTransition: AnyObject {
     func openCheckListItems(for checklist: ListItem, at position: Int)
     func goToAddCheckList()
-    func goToEditCheckList(item: ListRowView.Model, at position: Int)
+    func goToEditCheckList(item: ListItem, at position: Int)
 }
 
 final class AllListsViewModel {
@@ -48,11 +47,6 @@ extension AllListsViewModel: AllListsVM {
     func loadChecklists() {
         self.viewDelegate?.loadChecklists(di.storageManager.load())
     }
-    
-    func updateStorageMgr(items: [ListItem]) {
-        di.storageManager.update(items: items)
-    }
-
 }
 
 // MARK: - AllListsTransition
@@ -67,7 +61,7 @@ extension AllListsViewModel: AllListsTransition {
         route?.goToAddOrEditCheckList(item: nil, completion: listAdded)
     }
     
-    func goToEditCheckList(item: ListRowView.Model, at position: Int) {
+    func goToEditCheckList(item: ListItem, at position: Int) {
         route?.goToAddOrEditCheckList(item: (position, item), completion: listAdded)
     }
 }
@@ -75,7 +69,7 @@ extension AllListsViewModel: AllListsTransition {
 // MARK: - Private
 
 extension AllListsViewModel {
-    func listAdded(model: ListRowView.Model, at position: Int?) {
+    func listAdded(model: ListItem, at position: Int?) {
         if let position = position {
             self.viewDelegate?.update(item: model, at: position)
         } else {

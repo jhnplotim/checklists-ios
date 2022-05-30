@@ -14,7 +14,7 @@ protocol ChecklistRoute: AnyObject {
     func goToCheckListItems(for checklist: ListItem, at position: Int)
      /// Pop to prev view controller (if current is pushed onto stack)
     func popToPrevious()
-    func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?)
+    func goToAddOrEditCheckList(item: (Int, ListItem)?, completion: AddOrEditCheckList?)
 }
 
 final class ChecklistCoordinator: Coordinator {
@@ -71,7 +71,7 @@ extension ChecklistCoordinator: ChecklistRoute {
         pop()
     }
     
-    func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?) {
+    func goToAddOrEditCheckList(item: (Int, ListItem)?, completion: AddOrEditCheckList?) {
         push(ListDetailViewController.create(viewModel: ListDetailViewModel(route: self, completion: completion, itemToEdit: item)))
     }
 }

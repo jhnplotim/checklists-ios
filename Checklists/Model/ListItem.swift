@@ -47,7 +47,7 @@ class ListItem: NSObject, Codable {
 // MARK: - Extension ListItem -> ListRowView.Model
 extension ListItem {
     var modelListItem: ListRowView.Model {
-        ListRowView.Model(title: self.title)
+        ListRowView.Model(title: self.title, subTitle: self.state.message)
     }
 }
 

@@ -9,7 +9,7 @@ import UIKit
 import Combine
  
 protocol ListDetailViewDelegate: AnyObject {
-    func preload(editItem: ListRowView.Model)
+    func preload(editItem: ListItem)
 }
 
 // MARK: - Class
@@ -100,7 +100,7 @@ extension ListDetailViewController {
 // MARK: - ListDetailViewDelegate
 
 extension ListDetailViewController: ListDetailViewDelegate {
-    func preload(editItem: ListRowView.Model) {
+    func preload(editItem: ListItem) {
         textField.text = editItem.title
         navigationItem.title = C.editListTitle
         doneBarBtn.isEnabled = true

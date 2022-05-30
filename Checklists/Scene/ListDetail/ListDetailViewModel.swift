@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias AddOrEditCheckList = ((ListRowView.Model, Int?) -> Void)
+typealias AddOrEditCheckList = ((ListItem, Int?) -> Void)
 
 protocol ListDetailVM: AnyObject {
     func setup(viewDelegate: ListDetailViewDelegate)
@@ -27,11 +27,12 @@ final class ListDetailViewModel {
 
     // private var di: DI
     private var completion: AddOrEditCheckList?
-    private var itemToEdit: (Int, ListRowView.Model)?
+    // TODO: Change to using ListItem object itself
+    private var itemToEdit: (Int, ListItem)?
 
     // MARK: - Constructor
 
-    init(route: ChecklistRoute? = nil, completion: AddOrEditCheckList? = nil, itemToEdit: (Int, ListRowView.Model)? = nil) {
+    init(route: ChecklistRoute? = nil, completion: AddOrEditCheckList? = nil, itemToEdit: (Int, ListItem)? = nil) {
         // self.di = di
         self.route = route
         self.completion = completion
@@ -54,9 +55,12 @@ extension ListDetailViewModel: ListDetailVM {
     
     func itemAddedOrEdited(titleName: String) {
         if let itemToEdit = itemToEdit {
-            completion?(ListRowView.Model(title: titleName), itemToEdit.0)
+            // Set the new name
+            itemToEdit.1.title = titleName
+            
+            completion?(itemToEdit.1, itemToEdit.0)
         } else {
-            completion?(ListRowView.Model(title: titleName), nil)
+            completion?(ListItem(title: titleName), nil)
         }
     }
 

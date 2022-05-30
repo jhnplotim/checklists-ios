@@ -9,14 +9,9 @@ import UIKit
 import Combine
  
 protocol AllListsViewDelegate: AnyObject {
-    func add(newItem: ListRowView.Model)
-    func update(item: ListRowView.Model, at position: Int)
+    func add(newItem: ListItem)
+    func update(item: ListItem, at position: Int)
     func loadChecklists(_ listItems: [ListItem])
-}
-
-// MARK: - Item for TableViewController
-private enum Item: Codable {
-    case listRow(model: ListRowView.Model)
 }
 
 // MARK: - Class
@@ -41,12 +36,7 @@ final class AllListsViewController: BaseUITableViewController {
     }
 
     // MARK: - Variable
-    private var checkLists: [ListItem] = [] {
-        didSet {
-            items = checkLists.items
-        }
-    }
-    private var items: [Item] = []
+    private var items: [ListItem] = []
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
@@ -71,6 +61,11 @@ extension AllListsViewController {
         // Tell VM to load data
         viewModel.loadChecklists()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Reload table when user add, edits or deletes items from Checklist screen and navigates back
+        tableView.reloadData()
+    }
 
 }
 
@@ -94,32 +89,29 @@ extension AllListsViewController {
 // MARK: - AllListsViewDelegate
 
 extension AllListsViewController: AllListsViewDelegate {
-    func add(newItem: ListRowView.Model) {
+    func add(newItem: ListItem) {
         // Position to insert item
-        let newRowIndex = checkLists.count
+        let newRowIndex = items.count
         // Append item to list
-        // TODO: Check if didSet updates the items
-        checkLists.append(newItem.listItem)
+        items.append(newItem)
         // Updated the table view
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
-        viewModel.updateStorageMgr(items: checkLists)
+        // viewModel.updateStorageMgr(items: items)
     }
     
-    func update(item: ListRowView.Model, at position: Int) {
+    func update(item: ListItem, at position: Int) {
+        // item param is not used since we passed the reference and modified the reference in the child view controller. The same reference that will be saved later
         // Update item in list
-        // TODO: Check if didSet updates the items
-        checkLists[position] = item.listItem
         // path of index to update
         let path = [IndexPath(row: position, section: 0)]
         // Update table view
         tableView.reloadRows(at: path, with: .automatic)
-        viewModel.updateStorageMgr(items: checkLists)
     }
     
     func loadChecklists(_ listItems: [ListItem]) {
-        checkLists = listItems
+        items = listItems
         tableView.reloadData()
     }
 }
@@ -136,11 +128,14 @@ extension AllListsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch items[indexPath.row] {
-        case .listRow(model: let model):
-            let cell = tableView.dequeueReusableCell(fromClass: ListRowTableViewCell.self, for: indexPath)
-            cell?.setup(model: model)
-            return cell ?? UITableViewCell()
+        
+        let item = items[indexPath.row]
+        
+        if let cell = tableView.dequeueReusableCell(fromClass: ListRowTableViewCell.self, for: indexPath) {
+            cell.setup(model: item.modelListItem)
+            return cell
+        } else {
+            return UITableViewCell()
         }
     }
     
@@ -148,45 +143,23 @@ extension AllListsViewController {
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let checkList = checkLists[indexPath.row]
+        let item = items[indexPath.row]
         
-        viewModel.openCheckListItems(for: checkList, at: indexPath.row)
+        viewModel.openCheckListItems(for: item, at: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        if case let .listRow(model) = items[indexPath.row] {
-            viewModel.goToEditCheckList(item: model, at: indexPath.row)
-        }
+        let item = items[indexPath.row]
+        viewModel.goToEditCheckList(item: item, at: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 1
-        checkLists.remove(at: indexPath.row)
+        items.remove(at: indexPath.row)
         
         // 2
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
-        
-        viewModel.updateStorageMgr(items: checkLists)
     }
     
-}
-
-// MARK: - Array extension for [ListItem] -> [Item]
-extension Array where Element == ListItem {
-    fileprivate var items: [Item] {
-        return self.map { Item.listRow(model: $0.modelListItem)}
-    }
-}
-
-// MARK: - Array extension for [Item] -> [ListItem]
-extension Array where Element == Item {
-    fileprivate var listItems: [ListItem] {
-        return self.compactMap {
-            switch $0 {
-            case .listRow(model: let model):
-                return model.listItem
-            }
-        }
-    }
 }
