@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E0B9A0F2844A57A000E55D4 /* ChecklistItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B9A0E2844A57A000E55D4 /* ChecklistItemCoordinator.swift */; };
+		7E0B9A122844B9D8000E55D4 /* GPublisherUIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B9A112844B9D8000E55D4 /* GPublisherUIView+.swift */; };
 		7E3287F228438DEC0003AE9E /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F028438DEC0003AE9E /* CacheManager.swift */; };
 		7E3287F328438DEC0003AE9E /* CacheManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */; };
 		7E3287F528438EBC0003AE9E /* UserDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		7E0B9A0E2844A57A000E55D4 /* ChecklistItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemCoordinator.swift; sourceTree = "<group>"; };
+		7E0B9A112844B9D8000E55D4 /* GPublisherUIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPublisherUIView+.swift"; sourceTree = "<group>"; };
 		7E3287F028438DEC0003AE9E /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagerImpl.swift; sourceTree = "<group>"; };
 		7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValue.swift; sourceTree = "<group>"; };
@@ -191,6 +193,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0B9A102844B9BB000E55D4 /* GesturePublisher */ = {
+			isa = PBXGroup;
+			children = (
+				DA992613283E1673004C0FF6 /* GesturePublisher.swift */,
+				7E0B9A112844B9D8000E55D4 /* GPublisherUIView+.swift */,
+			);
+			path = GesturePublisher;
+			sourceTree = "<group>";
+		};
 		7E3287EF28438D0E0003AE9E /* CacheManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,9 +360,9 @@
 		DA99260E283E15C4004C0FF6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E0B9A102844B9BB000E55D4 /* GesturePublisher */,
 				DA99260F283E15DB004C0FF6 /* Animator.swift */,
 				DA992611283E161F004C0FF6 /* CombineTimer.swift */,
-				DA992613283E1673004C0FF6 /* GesturePublisher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -732,6 +743,7 @@
 				DAC137BD283E9C4800DDDD47 /* UIView+.swift in Sources */,
 				7E0B9A0F2844A57A000E55D4 /* ChecklistItemCoordinator.swift in Sources */,
 				DA99260D283E149C004C0FF6 /* UILabel+.swift in Sources */,
+				7E0B9A122844B9D8000E55D4 /* GPublisherUIView+.swift in Sources */,
 				DAC137BF283F5B6F00DDDD47 /* ShadowView.swift in Sources */,
 				DA992642283E5225004C0FF6 /* BaseUITableViewController.swift in Sources */,
 				DA9925D5283E0DD5004C0FF6 /* AppDelegate.swift in Sources */,
