@@ -55,6 +55,10 @@ internal enum L {
         /// Shopping
         internal static let name = L.tr("Localizable", "feature.checklist.default.name")
       }
+      internal enum Iconpicker {
+        /// Choose Icon
+        internal static let title = L.tr("Localizable", "feature.checklist.iconpicker.title")
+      }
       internal enum State {
         internal enum Allitemsdone {
           /// All done!
@@ -98,6 +102,10 @@ internal enum L {
       internal enum Edit {
         /// Edit List
         internal static let title = L.tr("Localizable", "feature.listdetail.edit.title")
+      }
+      internal enum Icon {
+        /// Icon
+        internal static let title = L.tr("Localizable", "feature.listdetail.icon.title")
       }
       internal enum Textfield {
         /// Name of the List

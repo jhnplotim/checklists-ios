@@ -11,7 +11,8 @@ typealias AddOrEditCheckList = ((ListItem, Int?) -> Void)
 
 protocol ListDetailVM: AnyObject {
     func setup(viewDelegate: ListDetailViewDelegate)
-    func itemAddedOrEdited(titleName: String)
+    func itemAddedOrEdited(titleName: String, iconName: String)
+    func goToIconPicker()
 }
 
 protocol ListDetailTransition: AnyObject {
@@ -53,15 +54,20 @@ extension ListDetailViewModel: ListDetailVM {
         }
     }
     
-    func itemAddedOrEdited(titleName: String) {
+    func itemAddedOrEdited(titleName: String, iconName: String) {
         if let itemToEdit = itemToEdit {
-            // Set the new name
+            // Set the new name & icon
             itemToEdit.1.title = titleName
+            itemToEdit.1.iconName = iconName
             
             completion?(itemToEdit.1, itemToEdit.0)
         } else {
-            completion?(ListItem(title: titleName), nil)
+            completion?(ListItem(title: titleName, iconName: iconName), nil)
         }
+    }
+    
+    func goToIconPicker() {
+        route?.goToIconPicker(completion: iconSelected)
     }
 
 }
@@ -77,5 +83,7 @@ extension ListDetailViewModel: ListDetailTransition {
 // MARK: - Private
 
 extension ListDetailViewModel {
-
+    func iconSelected(iconName: String) {
+        self.viewDelegate?.iconSelected(withName: iconName)
+    }
 }

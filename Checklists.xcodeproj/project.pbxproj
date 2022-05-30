@@ -16,6 +16,9 @@
 		7E3287FD2843927B0003AE9E /* KeychainValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287FC2843927B0003AE9E /* KeychainValue.swift */; };
 		7E328800284394560003AE9E /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3287FF284394560003AE9E /* KeychainSwift */; };
 		7E3B956E2844FBBB001211C0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B956D2844FBBB001211C0 /* DataModel.swift */; };
+		7E3B957328454851001211C0 /* IconPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B957028454851001211C0 /* IconPickerViewModel.swift */; };
+		7E3B957428454851001211C0 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3B957128454851001211C0 /* IconPickerViewController.swift */; };
+		7E3B957528454851001211C0 /* IconPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E3B957228454851001211C0 /* IconPickerViewController.storyboard */; };
 		7EAC41F22843B760005609F4 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = 7EAC41F12843B760005609F4 /* README.MD */; };
 		7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3B42841FA44000ED101 /* DependencyManager.swift */; };
 		7EE3C3BD2841FB62000ED101 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3C3BB2841FB62000ED101 /* StorageManager.swift */; };
@@ -101,6 +104,9 @@
 		7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValue.swift; sourceTree = "<group>"; };
 		7E3287FC2843927B0003AE9E /* KeychainValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainValue.swift; sourceTree = "<group>"; };
 		7E3B956D2844FBBB001211C0 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		7E3B957028454851001211C0 /* IconPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewModel.swift; sourceTree = "<group>"; };
+		7E3B957128454851001211C0 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
+		7E3B957228454851001211C0 /* IconPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IconPickerViewController.storyboard; sourceTree = "<group>"; };
 		7EAC41F12843B760005609F4 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = SOURCE_ROOT; };
 		7EE3C3B42841FA44000ED101 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		7EE3C3BB2841FB62000ED101 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -213,6 +219,16 @@
 				7E3287FC2843927B0003AE9E /* KeychainValue.swift */,
 			);
 			path = CacheManager;
+			sourceTree = "<group>";
+		};
+		7E3B956F28454825001211C0 /* IconPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7E3B957028454851001211C0 /* IconPickerViewModel.swift */,
+				7E3B957128454851001211C0 /* IconPickerViewController.swift */,
+				7E3B957228454851001211C0 /* IconPickerViewController.storyboard */,
+			);
+			path = IconPicker;
 			sourceTree = "<group>";
 		};
 		7EE3C3B32841FA21000ED101 /* Manager */ = {
@@ -373,6 +389,7 @@
 		DA992615283E171A004C0FF6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7E3B956F28454825001211C0 /* IconPicker */,
 				DA99263E283E51F0004C0FF6 /* Base */,
 				7EE3C3C2284221D8000ED101 /* AllLists */,
 				7EF05ADC283FDFA900F4873B /* ChecklistDetail */,
@@ -650,6 +667,7 @@
 				7EE3C3DA284225F0000ED101 /* ListRowView.xib in Resources */,
 				DAC137B0283E9B0A00DDDD47 /* SeparatorRowView.xib in Resources */,
 				7EAC41F22843B760005609F4 /* README.MD in Resources */,
+				7E3B957528454851001211C0 /* IconPickerViewController.storyboard in Resources */,
 				DA992649283E52EF004C0FF6 /* ChecklistViewController.storyboard in Resources */,
 				DAC137B7283E9B3F00DDDD47 /* ChecklistRowTableViewCell.xib in Resources */,
 				DA99262F283E274C004C0FF6 /* swiftgen.yml in Resources */,
@@ -725,6 +743,7 @@
 				7E3287FD2843927B0003AE9E /* KeychainValue.swift in Sources */,
 				7EE3C3D128422539000ED101 /* ListItem.swift in Sources */,
 				DA99262A283E223D004C0FF6 /* ChecklistCoordinator.swift in Sources */,
+				7E3B957328454851001211C0 /* IconPickerViewModel.swift in Sources */,
 				7EE3C3B52841FA44000ED101 /* DependencyManager.swift in Sources */,
 				DA992610283E15DB004C0FF6 /* Animator.swift in Sources */,
 				DA992638283E2B03004C0FF6 /* Assets.swift in Sources */,
@@ -736,6 +755,7 @@
 				7EE3C3D8284225F0000ED101 /* ListRowTableViewCell.swift in Sources */,
 				DA992640283E5213004C0FF6 /* BaseUIViewController.swift in Sources */,
 				7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */,
+				7E3B957428454851001211C0 /* IconPickerViewController.swift in Sources */,
 				DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */,
 				7EE3C3C72842248B000ED101 /* AllListsViewModel.swift in Sources */,
 				DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */,

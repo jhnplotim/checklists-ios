@@ -40,6 +40,8 @@
 
 "feature.listdetail.edit.title" = "Edit List";
 
+"feature.listdetail.icon.title" = "Icon";
+
 "feature.listdetail.textfield.placeholder" = "Name of the List";
 
 "feature.checklists.title" = "Checklists";
@@ -57,4 +59,6 @@
 "feature.checklist.state.allitemsdone.label" = "All done!";
 
 "feature.checklist.state.itemsremaining.label" = "%d Remaining";
+
+"feature.checklist.iconpicker.title" = "Choose Icon";
 

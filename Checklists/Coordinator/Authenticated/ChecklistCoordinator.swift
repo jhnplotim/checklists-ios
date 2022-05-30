@@ -15,6 +15,7 @@ protocol ChecklistRoute: AnyObject {
      /// Pop to prev view controller (if current is pushed onto stack)
     func popToPrevious()
     func goToAddOrEditCheckList(item: (Int, ListItem)?, completion: AddOrEditCheckList?)
+    func goToIconPicker(completion: @escaping IconNameCompletionClosure)
 }
 
 final class ChecklistCoordinator: Coordinator {
@@ -22,6 +23,7 @@ final class ChecklistCoordinator: Coordinator {
     private enum C {
         static let homePageIndex = -1
         static let startingCheckListName = L.Feature.Checklist.Default.name
+        static let startCheckListIconName = "cart"
     }
     
     typealias DI = WithCacheManager & WithStorageManager
@@ -74,6 +76,10 @@ extension ChecklistCoordinator: ChecklistRoute {
     func goToAddOrEditCheckList(item: (Int, ListItem)?, completion: AddOrEditCheckList?) {
         push(ListDetailViewController.create(viewModel: ListDetailViewModel(route: self, completion: completion, itemToEdit: item)))
     }
+    
+    func goToIconPicker(completion: @escaping IconNameCompletionClosure) {
+        push(IconPickerViewController.create(viewModel: IconPickerViewModel(route: self, completion: completion)))
+    }
 }
 
 // MARK: - Private
@@ -82,7 +88,7 @@ extension ChecklistCoordinator {
     func handleFirstRun() {
         if di.cacheManager.isFirstRun {
             // Add default first item to list
-            di.storageManager.update(items: [ListItem(title: C.startingCheckListName)])
+            di.storageManager.update(items: [ListItem(title: C.startingCheckListName, iconName: C.startCheckListIconName)])
             
             // Set item as last selected index so that it is opened
             di.cacheManager.lastSelectedListIndex = 0

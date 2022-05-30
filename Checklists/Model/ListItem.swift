@@ -38,6 +38,10 @@ class ListItem: NSObject, Codable {
     
     var checkListItems: [ChecklistItem]
     
+    convenience init(title: String, iconName: String) {
+        self.init(title: title, iconName: iconName, checkListItems: [])
+    }
+    
     convenience init(title: String) {
         self.init(title: title, checkListItems: [])
     }
