@@ -14,11 +14,25 @@ final class ListRowView: ReusableNibView {
     struct Model: Codable {
         let title: String
         let subTitle: String
+        let iconName: String
+        
+        init(title: String, subTitle: String) {
+            self.title = title
+            self.subTitle = subTitle
+            self.iconName = ""
+        }
+        
+        init(title: String, subTitle: String, iconName: String) {
+            self.title = title
+            self.subTitle = subTitle
+            self.iconName = iconName
+        }
     }
 
     // MARK: - Outlet
     @IBOutlet weak var titleLabel: Label!
     @IBOutlet weak var subTitleLabel: Label!
+    @IBOutlet weak var iconImage: UIImageView!
     
     // MARK: - Variable
 
@@ -37,6 +51,7 @@ final class ListRowView: ReusableNibView {
         
         titleLabel.text = model.title
         subTitleLabel.text = model.subTitle
+        iconImage.image = UIImage(systemName: model.iconName)
     }
 
 }

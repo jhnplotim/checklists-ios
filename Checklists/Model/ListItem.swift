@@ -9,6 +9,10 @@ import Foundation
 
 class ListItem: NSObject, Codable {
     
+    enum C {
+        static let noIcon = ""
+    }
+    
     enum State: Equatable {
         case noItems
         case allItemsDone
@@ -30,15 +34,23 @@ class ListItem: NSObject, Codable {
     
     var title: String
     
+    var iconName: String
+    
     var checkListItems: [ChecklistItem]
     
     convenience init(title: String) {
         self.init(title: title, checkListItems: [])
     }
     
-    init(title: String, checkListItems: [ChecklistItem]) {
+    convenience init(title: String, checkListItems: [ChecklistItem]) {
+        self.init(title: title, iconName: C.noIcon, checkListItems: checkListItems)
+        // Any other code can go here
+    }
+    
+    init(title: String, iconName: String, checkListItems: [ChecklistItem]) {
         self.title = title
         self.checkListItems = checkListItems
+        self.iconName = iconName
         super.init()
         // Any other code can go here
     }
@@ -47,7 +59,7 @@ class ListItem: NSObject, Codable {
 // MARK: - Extension ListItem -> ListRowView.Model
 extension ListItem {
     var modelListItem: ListRowView.Model {
-        ListRowView.Model(title: self.title, subTitle: self.state.message)
+        ListRowView.Model(title: self.title, subTitle: self.state.message, iconName: self.iconName)
     }
 }
 

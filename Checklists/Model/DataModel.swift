@@ -10,6 +10,11 @@ import Foundation
 class DataModel {
     private var items: [ListItem]
     
+    static let icons = ["bag", "cart", "banknote", "giftcard", "alarm", "eye", "pills", "heart", "brain",
+                        "cross.case", "drop", "bolt", "person", "person.3", "figure.walk", "airplane.arrival", "car",
+                        "airplane.departure", "tram", "ferry", "bicycle", "Scooter", "fuelpump", "gamecontroller",
+                        "display", "headphones", "umbrella", "wrench", "fork.knife", "message", "phone", "envelope"]
+    
     init(items: [ListItem]) {
         self.items = items
         sortChecklists()
