@@ -11,7 +11,7 @@ import Combine
 protocol AllListsViewDelegate: AnyObject {
     func add(newItem: ListItem)
     func update(item: ListItem, at position: Int)
-    func loadChecklists(_ listItems: [ListItem])
+    func loadChecklists(_ dataModel: DataModel)
 }
 
 // MARK: - Class
@@ -36,7 +36,7 @@ final class AllListsViewController: BaseUITableViewController {
     }
 
     // MARK: - Variable
-    private var items: [ListItem] = []
+    private var dataModel: DataModel = DataModel()
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
@@ -91,27 +91,23 @@ extension AllListsViewController {
 extension AllListsViewController: AllListsViewDelegate {
     func add(newItem: ListItem) {
         // Position to insert item
-        let newRowIndex = items.count
         // Append item to list
-        items.append(newItem)
+        dataModel.append(newItem)
         // Updated the table view
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        // viewModel.updateStorageMgr(items: items)
+        tableView.reloadData()
     }
     
     func update(item: ListItem, at position: Int) {
         // item param is not used since we passed the reference and modified the reference in the child view controller. The same reference that will be saved later
         // Update item in list
         // path of index to update
-        let path = [IndexPath(row: position, section: 0)]
         // Update table view
-        tableView.reloadRows(at: path, with: .automatic)
+        dataModel.sort()
+        tableView.reloadData()
     }
     
-    func loadChecklists(_ listItems: [ListItem]) {
-        items = listItems
+    func loadChecklists(_ dataModel: DataModel) {
+        self.dataModel = dataModel
         tableView.reloadData()
     }
 }
@@ -120,7 +116,7 @@ extension AllListsViewController: AllListsViewDelegate {
 
 extension AllListsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return dataModel.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -129,9 +125,7 @@ extension AllListsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let item = items[indexPath.row]
-        
-        if let cell = tableView.dequeueReusableCell(fromClass: ListRowTableViewCell.self, for: indexPath) {
+        if let item = dataModel.getItem(at: indexPath.row), let cell = tableView.dequeueReusableCell(fromClass: ListRowTableViewCell.self, for: indexPath) {
             cell.setup(model: item.modelListItem)
             return cell
         } else {
@@ -143,19 +137,20 @@ extension AllListsViewController {
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let item = items[indexPath.row]
-        
-        viewModel.openCheckListItems(for: item, at: indexPath.row)
+        if let item = dataModel.getItem(at: indexPath.row) {
+            viewModel.openCheckListItems(for: item, at: indexPath.row)
+        }
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        viewModel.goToEditCheckList(item: item, at: indexPath.row)
+        if let item = dataModel.getItem(at: indexPath.row) {
+            viewModel.goToEditCheckList(item: item, at: indexPath.row)
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 1
-        items.remove(at: indexPath.row)
+        dataModel.remove(at: indexPath.row)
         
         // 2
         let indexPaths = [indexPath]

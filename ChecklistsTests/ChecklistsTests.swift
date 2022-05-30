@@ -40,5 +40,36 @@ class ChecklistsTests: XCTestCase {
         XCTAssertEqual(checklist.state, ListItem.State.itemsRemaining(1))
         XCTAssertEqual(checklist.state.message, L.Feature.Checklist.State.Itemsremaining.label(1))
     }
+    
+    func testDataModelSorting() throws {
+        let l1 = ListItem(title: "Shopping")
+        let l2 = ListItem(title: "Bar hopping")
+        let l3 = ListItem(title: "Alpha")
+        let dataModel = DataModel(items: [l1, l2])
+        
+        XCTAssertTrue(dataModel.count == 2)
+        XCTAssertFalse(dataModel.isEmpty)
+        XCTAssertEqual(dataModel.getItems()[0], l2)
+        XCTAssertEqual(dataModel.getItems()[1], l1)
+        
+        dataModel.append(l3)
+        XCTAssertTrue(dataModel.count == 3)
+        XCTAssertEqual(dataModel.getItem(at: 0), l3)
+        XCTAssertEqual(dataModel.getItem(at: 1), l2)
+        
+        dataModel.remove(at: 0)
+        XCTAssertTrue(dataModel.count == 2)
+        XCTAssertEqual(dataModel.getItem(at: 0), l2)
+        
+        dataModel.remove(at: 0)
+        XCTAssertTrue(dataModel.count == 1)
+        XCTAssertEqual(dataModel.getItem(at: 0), l1)
+        
+        dataModel.append(contentsOf: [l3, l2])
+        XCTAssertTrue(dataModel.count == 3)
+        XCTAssertEqual(dataModel.getItem(at: 0), l3)
+        XCTAssertEqual(dataModel.getItem(at: 1), l2)
+        XCTAssertEqual(dataModel.getItem(at: 2), l1)
+    }
 
 }
