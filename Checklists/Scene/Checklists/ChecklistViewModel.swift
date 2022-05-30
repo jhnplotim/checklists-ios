@@ -26,7 +26,7 @@ final class ChecklistViewModel {
 
     typealias DI = WithStorageManager & WithCacheManager
 
-    private weak var route: ChecklistRoute?
+    private weak var route: ChecklistItemRoute?
     private weak var viewDelegate: ChecklistViewDelegate?
 
     // Dependencies
@@ -35,7 +35,7 @@ final class ChecklistViewModel {
 
     // MARK: - Constructor
 
-    init(di: DI, route: ChecklistRoute? = nil, listToView: ListItem) {
+    init(di: DI, route: ChecklistItemRoute? = nil, listToView: ListItem) {
         self.di = di
         self.route = route
         self.checkListView = listToView

@@ -12,9 +12,7 @@ import Combine
 
 protocol ChecklistRoute: AnyObject {
     func goToCheckListItems(for checklist: ListItem, at position: Int)
-    func goToAddCheckListItem(completion: AddOrEditCheckListItem?)
-    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?)
-    /// Pop to prev view controller (if current is pushed onto stack)
+     /// Pop to prev view controller (if current is pushed onto stack)
     func popToPrevious()
     func goToAddOrEditCheckList(item: (Int, ListRowView.Model)?, completion: AddOrEditCheckList?)
 }
@@ -58,17 +56,12 @@ final class ChecklistCoordinator: Coordinator {
 
 extension ChecklistCoordinator: ChecklistRoute {
     func goToCheckListItems(for checklist: ListItem, at position: Int) {
-        // Save last opened checklist
-        di.cacheManager.lastSelectedListIndex = position
-        // Push
-        push(ChecklistViewController.create(viewModel: ChecklistViewModel(di: di, route: self, listToView: checklist )))
-    }
-    func goToEditCheckListItem(item: ChecklistRowView.Model, at position: Int, completion: AddOrEditCheckListItem?) {
-        push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self, itemToEdit: (position, item))))
-    }
-    
-    func goToAddCheckListItem(completion: AddOrEditCheckListItem?) {
-        push(AddChecklistViewController.create(viewModel: AddChecklistViewModel(completion: completion, route: self)))
+        let checklistItemCoordinator = ChecklistItemCoordinator(navigationController: navigationController, parentCoordinator: self, checkList: (position, checklist))
+        // Start
+        checklistItemCoordinator.start()
+        
+        childCoordinators.append(checklistItemCoordinator)
+       
     }
     
     func popToPrevious() {
