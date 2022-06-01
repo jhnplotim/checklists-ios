@@ -35,7 +35,7 @@ final class RootCoordinator: Coordinator {
     }
     
     func start() {
-        let checklistCoordinator = ChecklistCoordinator(navigationController: UINavigationController(), parentCoordinator: self, di: di)
+        let checklistCoordinator = ChecklistCoordinator(navigationController: UINavigationController.customNavigationController, parentCoordinator: self, di: di)
         checklistCoordinator.start()
         childCoordinators.append(checklistCoordinator)
         
