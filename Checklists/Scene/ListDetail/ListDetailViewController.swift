@@ -39,15 +39,17 @@ final class ListDetailViewController: BaseUITableViewController, UITextFieldDele
         static let editListTitle = L.Feature.Listdetail.Edit.title
         static let textFieldPlaceHolder = L.Feature.Listdetail.Textfield.placeholder
         static let iconLabelTitle = L.Feature.Listdetail.Icon.title
+        static let noIconImageName = ""
+        static let folderImageName = "folder"
     }
 
     // MARK: - Variable
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
-    private var iconName: String = "" {
+    private var iconName: String = C.noIconImageName {
         didSet {
-            iconImage.image = iconName.isEmpty ? UIImage(systemName: "folder") : UIImage(systemName: iconName)
+            iconImage.image = iconName.elementsEqual(C.noIconImageName) ? UIImage(systemName: C.folderImageName) : UIImage(systemName: iconName)
         }
     }
     
