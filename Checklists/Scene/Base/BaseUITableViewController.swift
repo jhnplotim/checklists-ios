@@ -12,8 +12,8 @@ class BaseUITableViewController: UITableViewController {
     let generator = UIImpactFeedbackGenerator(style: .medium)
     
     override func viewDidLoad() {
-        view.backgroundColor = Asset.white.color
-        tableView.backgroundColor = Asset.white.color
+        view.backgroundColor = Asset.appBackground.color
+        tableView.backgroundColor = Asset.appBackground.color
     }
     
     override func viewDidAppear(_ animated: Bool) {

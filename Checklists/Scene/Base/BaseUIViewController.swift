@@ -12,7 +12,7 @@ class BaseUIViewController: UIViewController {
     let generator = UIImpactFeedbackGenerator(style: .medium)
     
     override func viewDidLoad() {
-        view.backgroundColor = Asset.white.color
+        view.backgroundColor = Asset.appBackground.color
     }
     
     override func viewDidAppear(_ animated: Bool) {

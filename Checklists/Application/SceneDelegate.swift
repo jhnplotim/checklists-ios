@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         // Set global tint color
-        window.tintColor = Asset.purple.color
+        window.tintColor = Asset.globalTint.color
         
         fireMainController(window)
     }
@@ -60,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     private func fireMainController(_ window: UIWindow) {
-        let navigationController = UINavigationController()
+        let navigationController = UINavigationController.customNavigationController
         let rootCoordinator = RootCoordinator(navigationController: navigationController, window: window)
         
         rootCoordinator.start()
