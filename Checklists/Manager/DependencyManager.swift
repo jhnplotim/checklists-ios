@@ -7,11 +7,13 @@
 
 import Foundation
 
-class DependencyContainer: WithStorageManager, WithCacheManager {
+class DependencyContainer: WithStorageManager, WithCacheManager, WithNotificationManager {
     // Singleton
     lazy var storageManager: StorageManager = StorageManagerImpl.getSharedInstance(di: self)
     
     lazy var cacheManager: CacheManager = CacheManagerImpl()
+    
+    lazy var notificationManager: NotificationManager = NotificationManagerImpl(di: self)
 }
 
 let di = DependencyContainer()
