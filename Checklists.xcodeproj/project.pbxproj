@@ -11,6 +11,7 @@
 		7E0B9A122844B9D8000E55D4 /* GPublisherUIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B9A112844B9D8000E55D4 /* GPublisherUIView+.swift */; };
 		7E2982B72848EDAC00BD68CF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2982B52848EDAC00BD68CF /* NotificationManager.swift */; };
 		7E2982B82848EDAC00BD68CF /* NotificationManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2982B62848EDAC00BD68CF /* NotificationManagerImpl.swift */; };
+		7E2982BC284A040800BD68CF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2982BB284A040800BD68CF /* Array+Extensions.swift */; };
 		7E3287F228438DEC0003AE9E /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F028438DEC0003AE9E /* CacheManager.swift */; };
 		7E3287F328438DEC0003AE9E /* CacheManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */; };
 		7E3287F528438EBC0003AE9E /* UserDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */; };
@@ -107,6 +108,7 @@
 		7E0B9A112844B9D8000E55D4 /* GPublisherUIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPublisherUIView+.swift"; sourceTree = "<group>"; };
 		7E2982B52848EDAC00BD68CF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		7E2982B62848EDAC00BD68CF /* NotificationManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerImpl.swift; sourceTree = "<group>"; };
+		7E2982BB284A040800BD68CF /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		7E3287F028438DEC0003AE9E /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		7E3287F128438DEC0003AE9E /* CacheManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagerImpl.swift; sourceTree = "<group>"; };
 		7E3287F428438EBC0003AE9E /* UserDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultValue.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				DA99260C283E149C004C0FF6 /* UILabel+.swift */,
 				DA99263A283E4F67004C0FF6 /* Instantiable+.swift */,
 				7EA6FA4F284742D700E16DEB /* UINavigationController+.swift */,
+				7E2982BB284A040800BD68CF /* Array+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				7EF05AE0283FDFD900F4873B /* AddChecklistViewModel.swift in Sources */,
 				7E3B957428454851001211C0 /* IconPickerViewController.swift in Sources */,
 				7EA6FA50284742D700E16DEB /* UINavigationController+.swift in Sources */,
+				7E2982BC284A040800BD68CF /* Array+Extensions.swift in Sources */,
 				DA99260B283E145A004C0FF6 /* UIFont+.swift in Sources */,
 				7EE3C3C72842248B000ED101 /* AllListsViewModel.swift in Sources */,
 				DAC1379E283E97EF00DDDD47 /* ShrinkCell.swift in Sources */,

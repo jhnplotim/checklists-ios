@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias AddOrEditCheckListItem = ((ChecklistRowView.Model, Int?) -> Void)
+typealias AddOrEditCheckListItem = ((ChecklistItem, Int?) -> Void)
 
 protocol AddChecklistVM: AnyObject {
     func setup(viewDelegate: AddChecklistViewDelegate)
@@ -24,14 +24,14 @@ final class AddChecklistViewModel {
 
     private weak var route: ChecklistItemRoute?
     private var completion: AddOrEditCheckListItem?
-    private var itemToEdit: (Int, ChecklistRowView.Model)?
+    private var itemToEdit: (Int, ChecklistItem)?
     private weak var viewDelegate: AddChecklistViewDelegate?
 
     // private var di: DI
 
     // MARK: - Constructor
 
-    init(completion: AddOrEditCheckListItem? = nil, route: ChecklistItemRoute? = nil, itemToEdit: (Int, ChecklistRowView.Model)? = nil) {
+    init(completion: AddOrEditCheckListItem? = nil, route: ChecklistItemRoute? = nil, itemToEdit: (Int, ChecklistItem)? = nil) {
         self.completion = completion
         self.route = route
         self.itemToEdit = itemToEdit
@@ -52,9 +52,12 @@ extension AddChecklistViewModel: AddChecklistVM {
     
     func itemAddedOrEdited(titleName: String) {
         if let itemToEdit = itemToEdit {
-            completion?(ChecklistRowView.Model(title: titleName, isChecked: itemToEdit.1.isChecked), itemToEdit.0)
+            // Set the details
+            itemToEdit.1.title = titleName
+            
+            completion?(itemToEdit.1, itemToEdit.0)
         } else {
-            completion?(ChecklistRowView.Model(title: titleName, isChecked: false), nil)
+            completion?(ChecklistItem(title: titleName), nil)
         }
     }
 

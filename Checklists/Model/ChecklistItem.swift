@@ -11,6 +11,10 @@ class ChecklistItem: NSObject, Codable {
     var isChecked: Bool
     var title: String
     
+    convenience init(title: String) {
+        self.init(title: title, isChecked: false)
+    }
+    
     init(title: String, isChecked: Bool) {
         self.isChecked = isChecked
         self.title = title

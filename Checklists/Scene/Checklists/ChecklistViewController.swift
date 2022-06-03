@@ -9,16 +9,9 @@ import UIKit
 import Combine
  
 protocol ChecklistViewDelegate: AnyObject {
-    func add(newItem: ChecklistRowView.Model)
-    func update(item: ChecklistRowView.Model, at position: Int)
+    func add(newItem: ChecklistItem)
+    func update(item: ChecklistItem, at position: Int)
     func loadCheckList(_ checkList: ListItem)
-}
-
-// MARK: - Item for TableViewController
-private enum Item: Codable {
-    
-    case checklistRow(model: ChecklistRowView.Model)
-    
 }
 
 // MARK: - Class
@@ -43,21 +36,7 @@ final class ChecklistViewController: BaseUITableViewController, UINavigationCont
 
     // MARK: - Variable
     
-    private var checkList = ListItem(title: "") {
-        didSet {
-            // TODO: Uncomment to investigate
-            // items = checkList.checkListItems.items
-        }
-    }
-    
-    // TODO: Remove Quick fix later since didSet in checkList: ListItem property runs only once
-    private var checkListItems: [ChecklistItem] = [] {
-        didSet {
-            items = checkListItems.items
-        }
-    }
-    
-    private var items: [Item] = []
+    private var checkList = ListItem(title: "")
 
     private var viewModel: ViewModel!
     private var cancellables = Set<AnyCancellable>()
@@ -103,23 +82,20 @@ extension ChecklistViewController {
 // MARK: - ChecklistViewDelegate
 
 extension ChecklistViewController: ChecklistViewDelegate {
-    func update(item: ChecklistRowView.Model, at position: Int) {
-        checkList.checkListItems[position] = item.checklistItem
-        // TODO: Investigate why didSet on checkList is not called.
-        // FIXME: Fix this later when we sort out didSet issue
-        updateCheckList(newItems: checkList.checkListItems)
+    func update(item: ChecklistItem, at position: Int) {
+        // No need to update here since we passed reference which was modified on the other page
+        // checkList.checkListItems[position] = item
         // Update item in list path of index to update
         let path = [IndexPath(row: position, section: 0)]
         // Update table view
         tableView.reloadRows(at: path, with: .automatic)
     }
     
-    func add(newItem: ChecklistRowView.Model) {
+    func add(newItem: ChecklistItem) {
         // Position to insert item
-        let newRowIndex = items.count
+        let newRowIndex = checkList.checkListItems.count
         // Append item to list
-        checkList.checkListItems.append(newItem.checklistItem)
-        updateCheckList(newItems: checkList.checkListItems)
+        checkList.checkListItems.append(newItem)
         // Updated the table view
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
@@ -131,8 +107,6 @@ extension ChecklistViewController: ChecklistViewDelegate {
         navigationItem.title = checkList.title
         // Load checklist items
         self.checkList = checkList
-        // Part of fix
-        checkListItems = checkList.checkListItems
         tableView.reloadData()
     }
 }
@@ -145,25 +119,24 @@ extension ChecklistViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return checkList.checkListItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch items[indexPath.row] {
+        if let item = checkList.checkListItems.safeGet(at: indexPath.row), let cell = tableView.dequeueReusableCell(fromClass: ChecklistRowTableViewCell.self, for: indexPath) {
+            cell.setup(model: item.modelCheckListListItem)
+            return cell
             
-        case .checklistRow(model: let model):
-            let cell = tableView.dequeueReusableCell(fromClass: ChecklistRowTableViewCell.self, for: indexPath)
-            cell?.setup(model: model)
-            return cell ?? UITableViewCell()
+        } else {
+            return UITableViewCell()
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if case .checklistRow(_) = items[indexPath.row] {
-            // Update the item list at that row index by toggling the isChecked property and later reload the table view
-            checkList.checkListItems[indexPath.row].toggle()
-            updateCheckList(newItems: checkList.checkListItems)
+        if let item = checkList.checkListItems.safeGet(at: indexPath.row) {
+            item.toggle()
         }
+
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: true)
         // Reload the table view at selected path
@@ -173,7 +146,6 @@ extension ChecklistViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 1
         checkList.checkListItems.remove(at: indexPath.row)
-        updateCheckList(newItems: checkList.checkListItems)
         
         // 2
         let indexPaths = [indexPath]
@@ -181,35 +153,9 @@ extension ChecklistViewController {
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        if case .checklistRow(_) = items[indexPath.row] {
-            viewModel.goToEdit(item: checkList.checkListItems[indexPath.row].modelCheckListListItem, at: indexPath.row)
+        if let item = checkList.checkListItems.safeGet(at: indexPath.row) {
+            viewModel.goToEdit(item: item, at: indexPath.row)
         }
-    }
-}
-
-// MARK: - Array extension for [ChecklistItem] -> [Item]
-extension Array where Element == ChecklistItem {
-    fileprivate var items: [Item] {
-        return self.map { Item.checklistRow(model: ChecklistRowView.Model(title: $0.title, isChecked: $0.isChecked))}
-    }
-}
-
-// MARK: - Array extension for [Item] -> [ChecklistItem]
-extension Array where Element == Item {
-    fileprivate var checklistItems: [ChecklistItem] {
-        return self.compactMap {
-            switch $0 {
-            case .checklistRow(model: let model):
-                return ChecklistItem(title: model.title, isChecked: model.isChecked)
-            }
-        }
-    }
-}
-
-extension ChecklistViewController {
-    func updateCheckList(newItems: [ChecklistItem]) {
-        checkList.checkListItems = newItems
-        checkListItems = newItems
     }
 }
 

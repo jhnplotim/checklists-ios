@@ -9,7 +9,7 @@ import UIKit
 import Combine
  
 protocol AddChecklistViewDelegate: AnyObject {
-    func preload(editItem: ChecklistRowView.Model)
+    func preload(editItem: ChecklistItem)
 }
 
 // MARK: - Class
@@ -97,7 +97,7 @@ extension AddChecklistViewController {
 // MARK: - AddChecklistViewDelegate
 
 extension AddChecklistViewController: AddChecklistViewDelegate {
-    func preload(editItem: ChecklistRowView.Model) {
+    func preload(editItem: ChecklistItem) {
         textField.text = editItem.title
         navigationItem.title = C.editItemTitle
         doneBarBtn.isEnabled = true
